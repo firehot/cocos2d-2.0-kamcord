@@ -14,7 +14,7 @@
 
 // Convenient for game developers
 #import "KamcordMacros.h"
-#import "View/KCViewController.h"
+#import "Common/View/KCViewController.h"
 
 @interface Kamcord : NSObject
 
@@ -33,8 +33,8 @@
 
 + (void) setView:(KCGLView *)glView;
 
-+ (void) setDeviceOrientation:(UIInterfaceOrientation)orientation;
-+ (UIInterfaceOrientation) deviceOrientation;
+// Convenience wrapper around [[UIApplication sharedApplication] statusBarOrientation]
++ (KCDeviceOrientation) deviceOrientation;
 
 // Social media
 + (void) setYouTubeTitle:(NSString *)title
@@ -79,14 +79,38 @@ enum KC_VIDEO_QUALITY {
     VIDEO_QUALITY_HIGH
 };
 
+// Video recording settings
+// Recommend setting is SMART_VIDEO_DIMENSIONS:
+//   All iPads: 512x384
+//   All iPhone and iPods: 480x320
+//
+// Other option is FULL_VIDEO_DIMENSIONS:
+//   All iPads: 1024x768
+//   iPhone/iPod non-retina: 480x320
+//   iPhone/iPad retina: 960x640
+typedef enum {
+    SMART_VIDEO_RESOLUTION,
+    FULL_VIDEO_RESOLUTION,
+} KC_VIDEO_RESOLUTION;
+
+typedef enum {
+    MEDIUM_VIDEO_QUALITY,
+    HIGH_VIDEO_QUALITY
+} KC_VIDEO_QUALITY;
+
 // Size refers to the pixel dimensions. 
-+ (void) setVideoDimensions:(enum KC_VIDEO_DIMENSIONS)dimensions
-                    quality:(enum KC_VIDEO_QUALITY)quality;
-+ (enum KC_VIDEO_DIMENSIONS) videoDimensions;
-+ (enum KC_VIDEO_QUALITY) videoQuality;
++ (void) setVideoResolution:(KC_VIDEO_RESOLUTION)resolution
+                    quality:(KC_VIDEO_QUALITY)quality;
++ (KC_VIDEO_RESOLUTION) videoResolution;
++ (KC_VIDEO_QUALITY) videoQuality;
 
 
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
+
+// Returns the singleton Kamcord object. You don't ever really need this, just
+// use the static API calls.
++ (Kamcord *) sharedManager;
+
 
 @end

@@ -6,6 +6,11 @@
 //  Copyright (c) 2012 Kamcord Inc. All rights reserved.
 //
 
+// Tell Kamcord which version we're using
+#define COCOS2D_2_0 1
+
+
+
 #ifndef cocos2d_ios_KamcordMacros_h
 #define cocos2d_ios_KamcordMacros_h
 
@@ -32,4 +37,33 @@ do	{																							\
 } while(0)
 
 
+// Logging
+#ifdef DEBUG
+
+#define NLog(fmt, ...) printf("%s\n", [[NSString stringWithFormat:@"%s:%d %@", __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:fmt, ##__VA_ARGS__]] UTF8String])
+
+#else
+
+#define NLog(...)
+
 #endif
+
+
+
+////////////////////////////////////////////////
+// Macros that make it easier to port Kamcord
+// to different engines.
+
+// Orientation
+#define KCDeviceOrientation UIInterfaceOrientation
+
+#define KCDeviceOrientationPortrait UIInterfaceOrientationPortrait 
+#define KCDeviceOrientationPortraitUpsideDown UIInterfaceOrientationPortraitUpsideDown
+#define KCDeviceOrientationLandscapeLeft UIInterfaceOrientationLandscapeLeft
+#define KCDeviceOrientationLandscapeRight UIInterfaceOrientationLandscapeRight
+
+// OpenGL
+#define KC_CONTENT_SCALE_FACTOR() CC_CONTENT_SCALE_FACTOR()
+
+#endif
+

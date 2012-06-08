@@ -8,7 +8,7 @@
 
 #import "CCGLView.h"
 
-#import "KCVideoReplayCreator.h"
+@class KCVideoWriter;
 
 @interface KCGLView : CCGLView
 
@@ -34,6 +34,6 @@
 // Kamcord category extension
 @interface CCGLView (KCGLView)
 
-- (void)setVideoReplayCreator:(KCVideoReplayCreator *)videoReplayCreator;
+- (void)setVideoWriter:(KCVideoWriter *)videoWriter;
 
 @end

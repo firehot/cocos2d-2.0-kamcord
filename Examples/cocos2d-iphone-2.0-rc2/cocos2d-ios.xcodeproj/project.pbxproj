@@ -70,10 +70,6 @@
 		0AC59EA315814220006ADD43 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0AC59E761581421F006ADD43 /* ShareKit.bundle */; };
 		0AC59EFB158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
 		0AC59EFC158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
-		0AC59EFD158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
-		0AC59EFF158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
-		0AC59F00158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
-		0AC59F01158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
 		0AC59F02158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
 		0AC59F03158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
 		0AC59F04158145C1006ADD43 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEA158144F4006ADD43 /* Accounts.framework */; };
@@ -93,13 +89,73 @@
 		0AC59F13158145C1006ADD43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		0AC59F53158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
 		0AC59F54158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
-		0AC59F55158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
 		0AC59F56158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
-		0AC59F57158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
-		0AC59F58158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
-		0AC59F59158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
 		0AC59F5A158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
 		0AC59F5B158154D6006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
+		0AC5A0F91581E8A5006ADD43 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEA158144F4006ADD43 /* Accounts.framework */; };
+		0AC5A0FA1581E8A5006ADD43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E3876C10446C6E00150883 /* AVFoundation.framework */; };
+		0AC5A0FB1581E8A5006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
+		0AC5A0FC1581E8A5006ADD43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
+		0AC5A0FD1581E8A5006ADD43 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEB158144F4006ADD43 /* CoreMedia.framework */; };
+		0AC5A0FE1581E8A5006ADD43 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEC158144F4006ADD43 /* CoreVideo.framework */; };
+		0AC5A0FF1581E8A5006ADD43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		0AC5A1001581E8A5006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
+		0AC5A1011581E8A5006ADD43 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EED158144F5006ADD43 /* MediaPlayer.framework */; };
+		0AC5A1021581E8A5006ADD43 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEE158144F5006ADD43 /* MessageUI.framework */; };
+		0AC5A1031581E8A5006ADD43 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
+		0AC5A1041581E8A5006ADD43 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
+		0AC5A1051581E8A5006ADD43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEF158144F5006ADD43 /* Security.framework */; };
+		0AC5A1061581E8A5006ADD43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF0158144F5006ADD43 /* SystemConfiguration.framework */; };
+		0AC5A1071581E8A5006ADD43 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF1158144F5006ADD43 /* Twitter.framework */; };
+		0AC5A1081581E8A5006ADD43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		0AC5A1091581E9A0006ADD43 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEA158144F4006ADD43 /* Accounts.framework */; };
+		0AC5A10A1581E9A0006ADD43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E3876C10446C6E00150883 /* AVFoundation.framework */; };
+		0AC5A10B1581E9A0006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
+		0AC5A10C1581E9A0006ADD43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
+		0AC5A10D1581E9A0006ADD43 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEB158144F4006ADD43 /* CoreMedia.framework */; };
+		0AC5A10E1581E9A0006ADD43 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEC158144F4006ADD43 /* CoreVideo.framework */; };
+		0AC5A10F1581E9A0006ADD43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		0AC5A1101581E9A0006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
+		0AC5A1111581E9A0006ADD43 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EED158144F5006ADD43 /* MediaPlayer.framework */; };
+		0AC5A1121581E9A0006ADD43 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEE158144F5006ADD43 /* MessageUI.framework */; };
+		0AC5A1131581E9A0006ADD43 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
+		0AC5A1141581E9A0006ADD43 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
+		0AC5A1151581E9A0006ADD43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEF158144F5006ADD43 /* Security.framework */; };
+		0AC5A1161581E9A0006ADD43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF0158144F5006ADD43 /* SystemConfiguration.framework */; };
+		0AC5A1171581E9A0006ADD43 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF1158144F5006ADD43 /* Twitter.framework */; };
+		0AC5A1181581E9A0006ADD43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		0AC5A1191581EA4C006ADD43 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEA158144F4006ADD43 /* Accounts.framework */; };
+		0AC5A11A1581EA4C006ADD43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E3876C10446C6E00150883 /* AVFoundation.framework */; };
+		0AC5A11B1581EA4C006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
+		0AC5A11C1581EA4C006ADD43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
+		0AC5A11D1581EA4C006ADD43 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEB158144F4006ADD43 /* CoreMedia.framework */; };
+		0AC5A11E1581EA4C006ADD43 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEC158144F4006ADD43 /* CoreVideo.framework */; };
+		0AC5A11F1581EA4C006ADD43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		0AC5A1201581EA4C006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
+		0AC5A1211581EA4C006ADD43 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EED158144F5006ADD43 /* MediaPlayer.framework */; };
+		0AC5A1221581EA4C006ADD43 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEE158144F5006ADD43 /* MessageUI.framework */; };
+		0AC5A1231581EA4C006ADD43 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
+		0AC5A1241581EA4C006ADD43 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
+		0AC5A1251581EA4C006ADD43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEF158144F5006ADD43 /* Security.framework */; };
+		0AC5A1261581EA4C006ADD43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF0158144F5006ADD43 /* SystemConfiguration.framework */; };
+		0AC5A1271581EA4C006ADD43 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF1158144F5006ADD43 /* Twitter.framework */; };
+		0AC5A1281581EA4C006ADD43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		0AC5A1291581EB84006ADD43 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEA158144F4006ADD43 /* Accounts.framework */; };
+		0AC5A12A1581EB84006ADD43 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E3876C10446C6E00150883 /* AVFoundation.framework */; };
+		0AC5A12B1581EB84006ADD43 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EFA158145B3006ADD43 /* AWSiOSSDK.framework */; };
+		0AC5A12C1581EB84006ADD43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
+		0AC5A12D1581EB84006ADD43 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEB158144F4006ADD43 /* CoreMedia.framework */; };
+		0AC5A12E1581EB84006ADD43 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEC158144F4006ADD43 /* CoreVideo.framework */; };
+		0AC5A12F1581EB84006ADD43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		0AC5A1301581EB84006ADD43 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59F52158154D6006ADD43 /* Kamcord.framework */; };
+		0AC5A1311581EB84006ADD43 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EED158144F5006ADD43 /* MediaPlayer.framework */; };
+		0AC5A1321581EB84006ADD43 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEE158144F5006ADD43 /* MessageUI.framework */; };
+		0AC5A1331581EB84006ADD43 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
+		0AC5A1341581EB84006ADD43 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
+		0AC5A1351581EB84006ADD43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EEF158144F5006ADD43 /* Security.framework */; };
+		0AC5A1361581EB84006ADD43 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF0158144F5006ADD43 /* SystemConfiguration.framework */; };
+		0AC5A1371581EB84006ADD43 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC59EF1158144F5006ADD43 /* Twitter.framework */; };
+		0AC5A1381581EB84006ADD43 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		3BB41AD414E43A51006CD0D8 /* zwoptex in Resources */ = {isa = PBXBuildFile; fileRef = E0C5588E11FE4CF100B9E4CB /* zwoptex */; };
 		3BB5C8E911410A4000DD65EF /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEA834A0FD5704400F08728 /* blocks.png */; };
 		3BB5C8EF11410A5300DD65EF /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEA834A0FD5704400F08728 /* blocks.png */; };
@@ -279,11 +335,6 @@
 		501C7C820F91EFFF0024A296 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 509A7A970F61A2400032F449 /* grossini_dance_atlas.png */; };
 		501C7C830F91EFFF0024A296 /* fire.pvr in Resources */ = {isa = PBXBuildFile; fileRef = 502AACF20F79715D001E3F87 /* fire.pvr */; };
 		501C7C860F91EFFF0024A296 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2CB170E10EE0800AE9530 /* main.m */; };
-		501C7C880F91EFFF0024A296 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		501C7C890F91EFFF0024A296 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		501C7C8A0F91EFFF0024A296 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
-		501C7C8B0F91EFFF0024A296 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
-		501C7C8C0F91EFFF0024A296 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		501C7C8D0F91EFFF0024A296 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5018F24D0DFDEAC400C013A5 /* libcocos2d.a */; };
 		501C7CA80F91F1B20024A296 /* SpriteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 501C7CA70F91F1B20024A296 /* SpriteTest.m */; };
 		501CCFB10E99657C00B86F68 /* OpenGL_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 501CCFA80E99657C00B86F68 /* OpenGL_Internal.h */; };
@@ -324,11 +375,6 @@
 		502BF5A011E39EFB0030C477 /* EAGLViewBugAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 502BF59C11E39EFB0030C477 /* EAGLViewBugAppDelegate.m */; };
 		502BF5A111E39EFB0030C477 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 502BF59E11E39EFB0030C477 /* HelloWorldScene.m */; };
 		502C664F0DFEFD6800E4107D /* RotateWorldTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C664E0DFEFD6800E4107D /* RotateWorldTest.m */; };
-		502C67020DFEFE1000E4107D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		502C67030DFEFE1000E4107D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		502C67040DFEFE1000E4107D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
-		502C67050DFEFE1000E4107D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
-		502C67060DFEFE1000E4107D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		502C67070DFEFE1000E4107D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5018F24D0DFDEAC400C013A5 /* libcocos2d.a */; };
 		502C6C6C0FB87970002BF3C2 /* CCParallaxNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 502C6C6A0FB87970002BF3C2 /* CCParallaxNode.h */; };
 		502C6C6D0FB87970002BF3C2 /* CCParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 502C6C6B0FB87970002BF3C2 /* CCParallaxNode.m */; };
@@ -748,11 +794,6 @@
 		506C7A040E01C73A00B48100 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		506C7A050E01C73A00B48100 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5018F24D0DFDEAC400C013A5 /* libcocos2d.a */; };
 		506C7A0E0E01C78700B48100 /* MenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C7A0D0E01C78700B48100 /* MenuTest.m */; };
-		506C80050E041C9300B48100 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		506C80060E041C9300B48100 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		506C80070E041C9300B48100 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
-		506C80080E041C9300B48100 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
-		506C80090E041C9300B48100 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		506C800A0E041C9300B48100 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5018F24D0DFDEAC400C013A5 /* libcocos2d.a */; };
 		506C80130E041CDB00B48100 /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C80120E041CDB00B48100 /* SceneTest.m */; };
 		506E1ADA0FB34E8E00AAA494 /* test-rgba1.png in Resources */ = {isa = PBXBuildFile; fileRef = 506E1AD50FB34E8E00AAA494 /* test-rgba1.png */; };
@@ -1144,11 +1185,6 @@
 		50DB1BBA0E1C1E5900A89DFF /* grossinis_sister2.png in Resources */ = {isa = PBXBuildFile; fileRef = 50B2CB2A0E10EE4A00AE9530 /* grossinis_sister2.png */; };
 		50DB1BBB0E1C1E5900A89DFF /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F9EA8F0E1AE87E000E7616 /* fire.png */; };
 		50DB1BBE0E1C1E5900A89DFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B2CB170E10EE0800AE9530 /* main.m */; };
-		50DB1BC10E1C1E5900A89DFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		50DB1BC20E1C1E5900A89DFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		50DB1BC30E1C1E5900A89DFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3623EB0D0F72F000981E51 /* CoreGraphics.framework */; };
-		50DB1BC40E1C1E5900A89DFF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */; };
-		50DB1BC50E1C1E5900A89DFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */; };
 		50DB1BC60E1C1E5900A89DFF /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5018F24D0DFDEAC400C013A5 /* libcocos2d.a */; };
 		50DB1BD10E1C1EF000A89DFF /* ParticleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB1BCF0E1C1EF000A89DFF /* ParticleTest.m */; };
 		50DF7F98104498FF0089218C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 503092B210447296005F7AFC /* libz.dylib */; };
@@ -5026,15 +5062,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501C7C880F91EFFF0024A296 /* Foundation.framework in Frameworks */,
-				501C7C890F91EFFF0024A296 /* UIKit.framework in Frameworks */,
-				501C7C8A0F91EFFF0024A296 /* CoreGraphics.framework in Frameworks */,
-				501C7C8B0F91EFFF0024A296 /* OpenGLES.framework in Frameworks */,
-				501C7C8C0F91EFFF0024A296 /* QuartzCore.framework in Frameworks */,
+				0AC5A1191581EA4C006ADD43 /* Accounts.framework in Frameworks */,
+				0AC5A11A1581EA4C006ADD43 /* AVFoundation.framework in Frameworks */,
+				0AC5A11B1581EA4C006ADD43 /* AWSiOSSDK.framework in Frameworks */,
+				0AC5A11C1581EA4C006ADD43 /* CoreGraphics.framework in Frameworks */,
+				0AC5A11D1581EA4C006ADD43 /* CoreMedia.framework in Frameworks */,
+				0AC5A11E1581EA4C006ADD43 /* CoreVideo.framework in Frameworks */,
+				0AC5A11F1581EA4C006ADD43 /* Foundation.framework in Frameworks */,
+				0AC5A1201581EA4C006ADD43 /* Kamcord.framework in Frameworks */,
+				0AC5A1211581EA4C006ADD43 /* MediaPlayer.framework in Frameworks */,
+				0AC5A1221581EA4C006ADD43 /* MessageUI.framework in Frameworks */,
+				0AC5A1231581EA4C006ADD43 /* OpenGLES.framework in Frameworks */,
+				0AC5A1241581EA4C006ADD43 /* QuartzCore.framework in Frameworks */,
+				0AC5A1251581EA4C006ADD43 /* Security.framework in Frameworks */,
+				0AC5A1261581EA4C006ADD43 /* SystemConfiguration.framework in Frameworks */,
+				0AC5A1271581EA4C006ADD43 /* Twitter.framework in Frameworks */,
+				0AC5A1281581EA4C006ADD43 /* UIKit.framework in Frameworks */,
 				501C7C8D0F91EFFF0024A296 /* libcocos2d.a in Frameworks */,
 				503092CF104474A4005F7AFC /* libz.dylib in Frameworks */,
-				0AC59F01158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */,
-				0AC59F59158154D6006ADD43 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5063,15 +5108,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				502C67020DFEFE1000E4107D /* Foundation.framework in Frameworks */,
-				502C67030DFEFE1000E4107D /* UIKit.framework in Frameworks */,
-				502C67040DFEFE1000E4107D /* CoreGraphics.framework in Frameworks */,
-				502C67050DFEFE1000E4107D /* OpenGLES.framework in Frameworks */,
-				502C67060DFEFE1000E4107D /* QuartzCore.framework in Frameworks */,
+				0AC5A0F91581E8A5006ADD43 /* Accounts.framework in Frameworks */,
+				0AC5A0FA1581E8A5006ADD43 /* AVFoundation.framework in Frameworks */,
+				0AC5A0FB1581E8A5006ADD43 /* AWSiOSSDK.framework in Frameworks */,
+				0AC5A0FC1581E8A5006ADD43 /* CoreGraphics.framework in Frameworks */,
+				0AC5A0FD1581E8A5006ADD43 /* CoreMedia.framework in Frameworks */,
+				0AC5A0FE1581E8A5006ADD43 /* CoreVideo.framework in Frameworks */,
+				0AC5A0FF1581E8A5006ADD43 /* Foundation.framework in Frameworks */,
+				0AC5A1001581E8A5006ADD43 /* Kamcord.framework in Frameworks */,
+				0AC5A1011581E8A5006ADD43 /* MediaPlayer.framework in Frameworks */,
+				0AC5A1021581E8A5006ADD43 /* MessageUI.framework in Frameworks */,
+				0AC5A1031581E8A5006ADD43 /* OpenGLES.framework in Frameworks */,
+				0AC5A1041581E8A5006ADD43 /* QuartzCore.framework in Frameworks */,
+				0AC5A1051581E8A5006ADD43 /* Security.framework in Frameworks */,
+				0AC5A1061581E8A5006ADD43 /* SystemConfiguration.framework in Frameworks */,
+				0AC5A1071581E8A5006ADD43 /* Twitter.framework in Frameworks */,
+				0AC5A1081581E8A5006ADD43 /* UIKit.framework in Frameworks */,
 				502C67070DFEFE1000E4107D /* libcocos2d.a in Frameworks */,
 				5030930A104479F8005F7AFC /* libz.dylib in Frameworks */,
-				0AC59EFF158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */,
-				0AC59F57158154D6006ADD43 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5339,15 +5393,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506C80050E041C9300B48100 /* Foundation.framework in Frameworks */,
-				506C80060E041C9300B48100 /* UIKit.framework in Frameworks */,
-				506C80070E041C9300B48100 /* CoreGraphics.framework in Frameworks */,
-				506C80080E041C9300B48100 /* OpenGLES.framework in Frameworks */,
-				506C80090E041C9300B48100 /* QuartzCore.framework in Frameworks */,
+				0AC5A1091581E9A0006ADD43 /* Accounts.framework in Frameworks */,
+				0AC5A10A1581E9A0006ADD43 /* AVFoundation.framework in Frameworks */,
+				0AC5A10B1581E9A0006ADD43 /* AWSiOSSDK.framework in Frameworks */,
+				0AC5A10C1581E9A0006ADD43 /* CoreGraphics.framework in Frameworks */,
+				0AC5A10D1581E9A0006ADD43 /* CoreMedia.framework in Frameworks */,
+				0AC5A10E1581E9A0006ADD43 /* CoreVideo.framework in Frameworks */,
+				0AC5A10F1581E9A0006ADD43 /* Foundation.framework in Frameworks */,
+				0AC5A1101581E9A0006ADD43 /* Kamcord.framework in Frameworks */,
+				0AC5A1111581E9A0006ADD43 /* MediaPlayer.framework in Frameworks */,
+				0AC5A1121581E9A0006ADD43 /* MessageUI.framework in Frameworks */,
+				0AC5A1131581E9A0006ADD43 /* OpenGLES.framework in Frameworks */,
+				0AC5A1141581E9A0006ADD43 /* QuartzCore.framework in Frameworks */,
+				0AC5A1151581E9A0006ADD43 /* Security.framework in Frameworks */,
+				0AC5A1161581E9A0006ADD43 /* SystemConfiguration.framework in Frameworks */,
+				0AC5A1171581E9A0006ADD43 /* Twitter.framework in Frameworks */,
+				0AC5A1181581E9A0006ADD43 /* UIKit.framework in Frameworks */,
 				506C800A0E041C9300B48100 /* libcocos2d.a in Frameworks */,
 				5030930C10447A13005F7AFC /* libz.dylib in Frameworks */,
-				0AC59F00158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */,
-				0AC59F58158154D6006ADD43 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5549,15 +5612,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50DB1BC10E1C1E5900A89DFF /* Foundation.framework in Frameworks */,
-				50DB1BC20E1C1E5900A89DFF /* UIKit.framework in Frameworks */,
-				50DB1BC30E1C1E5900A89DFF /* CoreGraphics.framework in Frameworks */,
-				50DB1BC40E1C1E5900A89DFF /* OpenGLES.framework in Frameworks */,
-				50DB1BC50E1C1E5900A89DFF /* QuartzCore.framework in Frameworks */,
+				0AC5A1291581EB84006ADD43 /* Accounts.framework in Frameworks */,
+				0AC5A12A1581EB84006ADD43 /* AVFoundation.framework in Frameworks */,
+				0AC5A12B1581EB84006ADD43 /* AWSiOSSDK.framework in Frameworks */,
+				0AC5A12C1581EB84006ADD43 /* CoreGraphics.framework in Frameworks */,
+				0AC5A12D1581EB84006ADD43 /* CoreMedia.framework in Frameworks */,
+				0AC5A12E1581EB84006ADD43 /* CoreVideo.framework in Frameworks */,
+				0AC5A12F1581EB84006ADD43 /* Foundation.framework in Frameworks */,
+				0AC5A1301581EB84006ADD43 /* Kamcord.framework in Frameworks */,
+				0AC5A1311581EB84006ADD43 /* MediaPlayer.framework in Frameworks */,
+				0AC5A1321581EB84006ADD43 /* MessageUI.framework in Frameworks */,
+				0AC5A1331581EB84006ADD43 /* OpenGLES.framework in Frameworks */,
+				0AC5A1341581EB84006ADD43 /* QuartzCore.framework in Frameworks */,
+				0AC5A1351581EB84006ADD43 /* Security.framework in Frameworks */,
+				0AC5A1361581EB84006ADD43 /* SystemConfiguration.framework in Frameworks */,
+				0AC5A1371581EB84006ADD43 /* Twitter.framework in Frameworks */,
+				0AC5A1381581EB84006ADD43 /* UIKit.framework in Frameworks */,
 				50DB1BC60E1C1E5900A89DFF /* libcocos2d.a in Frameworks */,
 				50309307104479A8005F7AFC /* libz.dylib in Frameworks */,
-				0AC59EFD158145B3006ADD43 /* AWSiOSSDK.framework in Frameworks */,
-				0AC59F55158154D6006ADD43 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13070,6 +13142,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+					"-all_load",
+				);
 				PRODUCT_NAME = SpriteTest;
 			};
 			name = Debug;
@@ -13089,6 +13166,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+					"-all_load",
+				);
 				PRODUCT_NAME = SpriteTest;
 				ZERO_LINK = NO;
 			};
@@ -13177,6 +13259,8 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-all_load",
+					"-lxml2",
 				);
 				PRODUCT_NAME = RotateWorldTest;
 			};
@@ -13204,6 +13288,8 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-all_load",
+					"-lxml2",
 				);
 				PRODUCT_NAME = RotateWorldTest;
 				ZERO_LINK = NO;
@@ -13878,6 +13964,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+					"-all_load",
+				);
 				PRODUCT_NAME = SceneTest;
 			};
 			name = Debug;
@@ -13898,6 +13989,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+					"-all_load",
+				);
 				PRODUCT_NAME = SceneTest;
 				ZERO_LINK = NO;
 			};
@@ -14457,6 +14553,8 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
+					"-all_load",
 				);
 				PRODUCT_NAME = ParticleTest;
 			};
@@ -14484,6 +14582,8 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
+					"-all_load",
 				);
 				PRODUCT_NAME = ParticleTest;
 				ZERO_LINK = NO;

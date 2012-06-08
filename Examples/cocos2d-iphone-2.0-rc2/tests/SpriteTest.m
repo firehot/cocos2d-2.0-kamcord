@@ -4567,7 +4567,7 @@ Class restartAction()
 
 
 	// Create an CCGLView with a RGB8 color buffer, and a depth buffer of 24-bits
-	CCGLView *glView = [CCGLView viewWithFrame:[window_ bounds]
+	KCGLView *glView = [KCGLView viewWithFrame:[window_ bounds]
 								   pixelFormat:kEAGLColorFormatRGBA8
 								   depthFormat:GL_DEPTH_COMPONENT24_OES
 							preserveBackbuffer:NO
@@ -4600,6 +4600,8 @@ Class restartAction()
 
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
 	navController_.navigationBarHidden = YES;
+    
+    [Kamcord setDeveloperKey:@"kamcord-test" developerSecret:@"kamcord-test"];
 
 	// set the Navigation Controller as the root view controller
 //	[window_ setRootViewController:rootViewController_];
@@ -4629,11 +4631,32 @@ Class restartAction()
 	// create the main scene
 	CCScene *scene = [CCScene node];
 	[scene addChild: [nextAction() node]];
+    
+    [Kamcord startRecording];
+    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 
 	// and run it!
 	[director_ pushScene: scene];
 
 	return YES;
+}
+
+-(void) stopRecordingAndShowKamcordView:(id)sender
+{
+	[Kamcord stopRecording];
+    [Kamcord showView];
+}
+
+-(void) applicationWillResignActive:(UIApplication *)application
+{
+	[[CCDirector sharedDirector] pause];
+    [Kamcord pause];
+}
+
+-(void) applicationDidBecomeActive:(UIApplication *)application
+{
+    [Kamcord resume];
+	[[CCDirector sharedDirector] resume];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

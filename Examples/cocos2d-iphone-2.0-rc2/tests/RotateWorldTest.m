@@ -181,10 +181,31 @@
 	[scene addChild: mainLayer];
 
 	[scene runAction: [CCRotateBy actionWithDuration: 4 angle:-360]];
+    
+    [Kamcord startRecording];
+    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 
 	[director_ pushScene: scene];
 
 	return YES;
+}
+
+-(void) stopRecordingAndShowKamcordView:(id)sender
+{
+	[Kamcord stopRecording];
+    [Kamcord showView];
+}
+
+-(void) applicationWillResignActive:(UIApplication *)application
+{
+	[[CCDirector sharedDirector] pause];
+    [Kamcord pause];
+}
+
+-(void) applicationDidBecomeActive:(UIApplication *)application
+{
+    [Kamcord resume];
+	[[CCDirector sharedDirector] resume];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

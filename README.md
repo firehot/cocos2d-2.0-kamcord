@@ -1,27 +1,30 @@
-# cocos2d-kamcord 0.1.0 alpha
+# cocos2d-kamcord 0.9.1
 
 
 ## Introduction
 
-Kamcord is a built-in gameplay recording technology for iOS. This repository contains a Kamcord SDK that works with Cocos2D-2.0-rc1 and allows you, the game developer, to capture gameplay videos with a very simple API.
+Kamcord is a built-in gameplay recording technology for iOS. This repository contains a Kamcord SDK that works with cocos2d-2.0-rc2 and allows you, the game developer, to capture gameplay videos with a very simple API.
 Your users can then replay and share these gameplay videos via YouTube, Facebook, Twitter, and email.
 
-In order to use Kamcord, you need a developer key and developer secret. To get these, please email Kevin at <a mailto="kevin@kamcord.com">kevin@kamcord.com</a>.
+In order to use Kamcord, you need a developer key and developer secret. To get these, please email Matt at <a mailto="matt@kamcord.com">matt@kamcord.com</a>.
 
 **Kamcord works on iOS 5 and above**. You can still will run without problems on older versions of iOS, though you will not be able to to record video. Kamcord works on the iPhone 3GS, iPhone 4, iPhone 4S, iPod Touch 3G and 4G, and all iPads.
 
-This is currently an alpha 0.1.0 build. We will be making lots of improvements and adding many features over the next few months. We'd love to hear your feedback and thoughts. If you have any questions or comments, please don't hesitate to <a href="mailto:kevin@kamcord.com"/>contact us</a>.
+We will be making lots of improvements and adding many features over the next few months. We'd love to hear your feedback and thoughts. If you have any questions or comments, please don't hesitate to <a href="mailto:matt@kamcord.com"/>contact us</a>.
 
 ## A Sample Application
 
-Before we explain how to use Kamcord in your own applications, let's go through a quick example that runs right out the box. Clone this repository to your local machine and open the project located at `Examples/cocos2d-iphone-2.0-rc1/cocos2d-ios.xcodeproj`.  Select `RotateWorldTest` from the dropdown and build and run that application. You should see the familiar `RotateWorldTest` from the Cocos2D suite of tests. **Make sure to run the application on a physical device with iOS 5+, not the simulator. Video replay is NOT supported by the simulator!**
+Before we explain how to use Kamcord in your own applications, let's go through a quick example that runs right out the box. Clone this repository to your local machine and open the project located at `Examples/cocos2d-iphone-2.0-rc2/cocos2d-ios.xcodeproj`.  Select `RotateWorldTest` from the dropdown and build and run that application. You should see the familiar `RotateWorldTest` from the Cocos2D suite of tests. **Make sure to run the application on a physical device with iOS 5+, not the simulator. Video replay is NOT supported by the simulator!**
 
-After 10 seconds, the Kamcord view should appear allowing you to replay a video recording of those first 10 seconds and share that video via Facebook, Twitter, and/or email. `ParticleTest`, `SceneTest`, and `SpriteTest` all work the same way.
+After 10 seconds, the Kamcord view should appear allowing you to replay a video recording of those first 10 seconds and share that video via Facebook, Twitter, YouTube, and/or email. `ParticleTest`, `SceneTest`, and `SpriteTest` all work the same way.
 
 `RenderTextureTest` is different in that it allows you to start and stop recording by pressing the two corresponding buttons at the top right of the screen. When you press `Stop Recording`, you will again see the Kamcord view with options to replay and share. Later on in this documentation, we'll walk through all the code needed to add recording and replay functionalities to `RenderTextureTest`.
 
 There is no practical limit on how long you can record for. Everything gets written immediately to disk and old videos are always being erased, so the only real limitation is the device's hard drive size. Since modern iOS devices have 16+ GB of hard disk space, you can safely record one continuous gameplay video for over 24 hours straight, an upper limit your gamers will probably never run into.
 
+## A Live Game Sample
+
+The team at <a target="_blank" href="http://www.sewerwars.com">Sewer Wars</a> has successfully integrated Kamcord into their game. Check out a <a target="_blank" href="http://kamcord.com/v/8Pm4x61dTEQ/">sample recording</a>!
 
 ## Installation
 
@@ -155,12 +158,19 @@ The API is:
 
 You can set the dimensions and quality of the recorded video:
 
-	+(void) setVideoDimensions:(enum KC_VIDEO_DIMENSIONS)dimensions
-	    	           quality:(enum KC_VIDEO_QUALITY)quality;
+	+(void) setVideoResolution:(KC_VIDEO_RESOLUTION)resolution
+	    	           quality:(KC_VIDEO_QUALITY)quality;
 
-There are two video dimension settings: `VIDEO_DIMENSIONS_FULL` and `VIDEO_DIMENSIONS_HALF`. The first keeps the original rendered pixel dimensions while the second reduces the width and height by two, effectively reducing the video size by 4. The two video quality settings are `VIDEO_QUALITY_HIGH` and `VIDEO_QUALITY_MEDIUM`.
+There are two video dimension settings:
 
-Keep in mind that videos that are larger and have higher quality will take much longer to process and upload, potentially making for a worse user experience. We recommend running with either `VIDEO_DIMENSIONS_FULL` and `VIDEO_QUALITY_MEDIUM` (the default) or `VIDEO_DIMENSIONS_HALF` and `VIDEO_QUALITY_HIGH`. You should experiment with different combinations to see what works best for your games.
+- `SMART_VIDEO_RESOLUTION`: 512x384 on all iPads, 480x320 on all iPhone/iPods.
+- `FULL_VIDEO_RESOLUTION`: 1024x768 on all iPads, 480x320 on non-retina iPhone/iPods, and 960x480 on retina iPhone/iPods.
+
+The two video quality settings are `HIGH_VIDEO_QUALITY` and `MEDIUM_VIDEO_QUALITY`.
+
+Keep in mind that videos that are larger and have higher quality will take much longer to process and upload. We recommend running with  `SMART_VIDEO_RESOLUTION` and `MEDIUM_VIDEO_QUALITY` (the default). You should experiment with different combinations to see what works best for your games.
+
+We currently don't support recording at iPad retina resolutions (2048x1536) because it seems that Apple doesn't support writing videos of those resolutions, but we plan to come back to this issue in the future.
 
 ### Background Audio
 
@@ -194,7 +204,9 @@ This presents a modal view with the following options:
 
 `Replay video` will show the video of the gameplay that just happened (the result of the last `stopRecording` call). 
 
-`Share` will bring the user to a new view that lets them enter a message and select Facebook, Twitter, and/or email. When the user taps the `Share` button on this second view, we upload the video to our (Kamcord's) YouTube channel and share their message to their selected social networks or via email. The first time the user selects Facebook or Twitter, he will be prompted for the relevant credentials and permissions. 
+`Share` will bring the user to a new view that lets them enter a message and select Facebook, Twitter, YouTube, and/or email. When the user taps the `Share` button on this second view, we upload the video to our servers and share their message to their selected social networks. The first time the user selects Facebook, Twitter, or YouTube, he will be prompted for the relevant credentials and permissions.
+
+All uploading to YouTube and sharing on Facebook/Twitter happens in a background thread. Based on testing, this has negligible impact on performance and provides for a great user experience, because your user can hit `Share` and get back to playing your game  as soon as possible.
 
 On Facebook, we will share the URL of the video with their typed message. A thumbnail from the video will be automatically generated and shown. On Twitter, if the user types the following message:
 
@@ -230,9 +242,9 @@ The `Message` is the text the user will enter. You can set the title, caption, a
    	                 caption:(NSString *)caption
                  description:(NSString *)description;
 
-When the user shares to Facebook, their video is first uploaded to YouTube. We will then use your settings to populate the corresponding fields on YouTube and Facebook. Needless to say, this is a great way to advertise your game by putting links to your website or your game's page on the Apple App Store.
+When the user shares to Facebook, their video is first uploaded to Kamcord. We will then use your settings to populate the corresponding fields on Facebook. Needless to say, this is a great way to advertise your game by putting links to your website or your game's page on the Apple App Store.
 
-It's worth noting that every time we upload a video to YouTube and post to Facebook, we use the currently set values of these fields. Therefore, you may want to change the title, caption, and or description to match the results of the most recent gameplay. We recommend you do this so that the message looks more customized which should result in more clicks on the video.
+It's worth noting that every time we post to Facebook, we use the currently set values of these fields. Therefore, you may want to change the title, caption, and or description to match the results of the most recent gameplay. We recommend you do this so that the message looks more customized which should result in more clicks on the video.
 
 Another function you need to set after you call `stopRecording` is:
 
@@ -257,7 +269,7 @@ The `Examples` directory has some fully functional examples of how to use Kamcor
 
 When this app launches, there are two buttons on the top right of the screen you can press to start and stop video recording. Play around by pressing `Start Recording`, doing some drawing or flipping between different tests, and then pressing `Stop Recording`. The Kamcord dialog should pop up and you'll be able to replay a video recording of your actions as well as share that video online.
 
-Below are all of the code integration points inside `Examples/cocos2d-iphone-2.0-rc1/tests/BaesAppController.m`. We bold the lines we added to make Kamcord work. First, include the library:
+Below are all of the code integration points inside `Examples/cocos2d-iphone-2.0-rc2/tests/BaesAppController.m`. We bold the lines we added to make Kamcord work. First, include the library:
 
 <pre><code><b>#import &lt;Kamcord/Kamcord.h&gt;</b>
 </code></pre>
@@ -305,7 +317,7 @@ Then do all the Kamcord initialization:
 }
 </code></pre>
 
-Inside `Examples/cocos2d-iphone-2.0-rc1/tests/RenderTextureTest.m`, add the "Start Recording" and "Stop Recording" buttons and insert the corresponding Kamcord hooks.
+Inside `Examples/cocos2d-iphone-2.0-rc2/tests/RenderTextureTest.m`, add the "Start Recording" and "Stop Recording" buttons and insert the corresponding Kamcord hooks.
 
 <pre><code>@implementation KamcordRecording
 -(id) init
@@ -396,5 +408,5 @@ To test this functionality, press `Start Recording`, play with the app, then clo
 
 ## Contact Us
 
-If you have any questions or comments, don't hesitate to email Kevin at <a href="mailto:kevin@kamcord.com">kevin@kamcord.com</a>. We reply to every email usually within a couple of hours, if not sooner.
+If you have any questions or comments, don't hesitate to email Matt at <a href="mailto:matt@kamcord.com">matt@kamcord.com</a> (650.267.1051). We reply to every email!
 

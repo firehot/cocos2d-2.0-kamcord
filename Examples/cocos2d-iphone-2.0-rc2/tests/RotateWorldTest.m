@@ -183,10 +183,10 @@
 	[scene runAction: [CCRotateBy actionWithDuration: 4 angle:-360]];
 
 	[director_ pushScene: scene];
-
-	return YES;
     
-    [self performSelector:@selector(startRecording:) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(startRecording) withObject:nil afterDelay:0.5];
+    
+    return YES;
 }
 
 -(void) startRecording

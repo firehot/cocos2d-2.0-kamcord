@@ -4601,7 +4601,8 @@ Class restartAction()
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
 	navController_.navigationBarHidden = YES;
     
-    [Kamcord setDeveloperKey:@"kamcord-test" developerSecret:@"kamcord-test"];
+    [Kamcord setDeveloperKey:@"f9014ff0b3d5a44db2468a0e16bfcf8c"
+             developerSecret:@"SDqGQY8I2JtmXmk4rJZhS5qtr5witt7YmRhVODhu8Yw"];
 
 	// set the Navigation Controller as the root view controller
 //	[window_ setRootViewController:rootViewController_];
@@ -4632,13 +4633,18 @@ Class restartAction()
 	CCScene *scene = [CCScene node];
 	[scene addChild: [nextAction() node]];
     
-    [Kamcord startRecording];
-    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
-
 	// and run it!
 	[director_ pushScene: scene];
 
+	[self performSelector:@selector(startRecording) withObject:nil afterDelay:0.5];
+    
 	return YES;
+}
+
+- (void) startRecording
+{
+    [Kamcord startRecording];
+    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 }
 
 -(void) stopRecordingAndShowKamcordView:(id)sender
@@ -4646,6 +4652,7 @@ Class restartAction()
 	[Kamcord stopRecording];
     [Kamcord showView];
 }
+
 
 -(void) applicationWillResignActive:(UIApplication *)application
 {

@@ -2202,14 +2202,19 @@ Class restartAction()
 
 	CCScene *scene = [CCScene node];
 	[scene addChild: [nextAction() node]];
-    
-    [Kamcord startRecording];
-    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 
 	[director_ pushScene: scene];
+    
+    [self performSelector:@selector(startRecording) withObject:nil afterDelay:0.5];
 
 	return YES;
 }
+     
+- (void) startRecording
+ {
+     [Kamcord startRecording];
+     [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
+ }
 
 -(void) stopRecordingAndShowKamcordView:(id)sender
 {

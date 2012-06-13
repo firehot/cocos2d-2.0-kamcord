@@ -7,6 +7,7 @@
 
 // cocos import
 #import "RenderTextureTest.h"
+#import <AVFoundation/AVFoundation.h>
 
 static int sceneIdx=-1;
 static NSString *tests[] = {
@@ -132,32 +133,55 @@ Class restartAction()
 -(void)testUIImage;
 @end
 
+@interface KamcordRecording ()
+
+@property (nonatomic, retain) KCAudio * sound1;
+@property (nonatomic, retain) KCAudio * sound2;
+
+@property (nonatomic, retain) AVAudioPlayer * audioPlayer1;
+@property (nonatomic, retain) AVAudioPlayer * audioPlayer2;
+
+@end
+
 @implementation KamcordRecording
+{
+    KCAudio * sound1_;
+    KCAudio * sound2_;
+    
+    AVAudioPlayer * audioPlayer1_;
+    AVAudioPlayer * audioPlayer2_;
+}
+
+@synthesize sound1 = sound1_;
+@synthesize sound2 = sound2_;
+
+@synthesize audioPlayer1 = audioPlayer1_;
+@synthesize audioPlayer2 = audioPlayer2_;
 -(id) init
 {
 	if( (self = [super init]) ) {
-
-		
+        
+        
 		CCDirector *director = [CCDirector sharedDirector];
-		
+        
 		// Testing multiple OpenGL locks
 		if( [NSThread currentThread] != [director runningThread] )
 			[(CCGLView*)[director view] lockOpenGLContext];
-		
+        
 		CGSize s = [[CCDirector sharedDirector] winSize];
-
+        
 		// create a render texture, this is what we're going to draw into
 		target = [[CCRenderTexture alloc] initWithWidth:s.width height:s.height pixelFormat:kCCTexture2DPixelFormat_RGBA8888];
 		[target setPosition:ccp(s.width/2, s.height/2)];
-
-
+        
+        
 		// It's possible to modify the RenderTexture blending function by
-//		[[target sprite] setBlendFunc:(ccBlendFunc) {GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
-
+        //		[[target sprite] setBlendFunc:(ccBlendFunc) {GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
+        
 		// note that the render texture is a CCNode, and contains a sprite of its texture for convience,
 		// so we can just parent it to the scene like any other CCNode
 		[self addChild:target z:-1];
-
+        
 		// create a brush image to draw into the texture with
 		brush = [[CCSprite spriteWithFile:@"fire.png"] retain];
 		[brush setColor:ccRED];
@@ -168,16 +192,21 @@ Class restartAction()
 		self.isMouseEnabled = YES;
 		lastLocation = CGPointMake( s.width/2, s.height/2);
 #endif
-
+        
 		// Save Image menu
 		[CCMenuItemFont setFontSize:16];
 		CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"Start Recording" target:self selector:@selector(startRecording:)];
         CCMenuItem *item2 = [CCMenuItemFont itemWithString:@"Stop Recording" target:self selector:@selector(stopRecordingAndShowDialog:)];
-		CCMenu *menu = [CCMenu menuWithItems:item1, item2, nil];
+		CCMenuItem *item3 = [CCMenuItemFont itemWithString:@"Play Sound #1" target:self selector:@selector(playSound1:)];
+        CCMenuItem *item4 = [CCMenuItemFont itemWithString:@"Play Sound #2" target:self selector:@selector(playSound2:)];
+        CCMenuItem *item5 = [CCMenuItemFont itemWithString:@"Stop Sound #1" target:self selector:@selector(stopSound1:)];
+        CCMenuItem *item6 = [CCMenuItemFont itemWithString:@"Stop Sound #2" target:self selector:@selector(stopSound2:)];
+        CCMenuItem *item7 = [CCMenuItemFont itemWithString:@"Stop All Sounds" target:self selector:@selector(stopAllSounds:)];
+		CCMenu *menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, item7, nil];
 		[self addChild:menu];
 		[menu alignItemsVertically];
-		[menu setPosition:ccp(s.width-80, s.height-30)];
-		
+		[menu setPosition:ccp(s.width-80, s.height-90)];
+        
 		if( [NSThread currentThread] != [director runningThread] )
 			[(CCGLView*)[director view] unlockOpenGLContext];
 	}
@@ -193,6 +222,51 @@ Class restartAction()
 {
     [Kamcord stopRecording];
     [Kamcord showView];
+}
+
+-(void) playSound1:(id)sender
+{
+    if (!self.audioPlayer1)
+    {
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test8" withExtension:@"caf"];
+        self.audioPlayer1 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    }
+    
+    if ([self.audioPlayer1 play]) {
+        self.sound1 = [Kamcord playSound:@"test8.caf"];
+    }
+}
+
+-(void) playSound2:(id)sender
+{
+    if (!self.audioPlayer2)
+    {
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test3" withExtension:@"m4a"];
+        self.audioPlayer2 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    }
+    
+    if ([self.audioPlayer2 play]) {
+        self.sound2 = [Kamcord playSound:@"test3.m4a"];
+    }
+}
+
+-(void) stopSound1:(id)sender
+{
+    [self.audioPlayer1 stop];
+    [self.sound1 stop];
+}
+
+-(void) stopSound2:(id)sender
+{
+    [self.audioPlayer2 stop];
+    [self.sound2 stop];
+}
+
+-(void) stopAllSounds:(id)sender
+{
+    [self.audioPlayer1 stop];
+    [self.audioPlayer2 stop];
+    [Kamcord stopAllSounds:NO];
 }
 
 

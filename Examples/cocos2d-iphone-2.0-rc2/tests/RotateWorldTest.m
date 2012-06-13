@@ -181,13 +181,18 @@
 	[scene addChild: mainLayer];
 
 	[scene runAction: [CCRotateBy actionWithDuration: 4 angle:-360]];
-    
-    [Kamcord startRecording];
-    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 
 	[director_ pushScene: scene];
 
 	return YES;
+    
+    [self performSelector:@selector(startRecording:) withObject:nil afterDelay:0.5];
+}
+
+-(void) startRecording
+{
+    [Kamcord startRecording];
+    [self performSelector:@selector(stopRecordingAndShowKamcordView:) withObject:nil afterDelay:10.0];
 }
 
 -(void) stopRecordingAndShowKamcordView:(id)sender

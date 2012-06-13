@@ -15,6 +15,7 @@
 // Convenient for game developers
 #import "KamcordMacros.h"
 #import "Common/View/KCViewController.h"
+#import "Common/Core/Audio/KCAudio.h"
 
 @interface Kamcord : NSObject
 
@@ -24,12 +25,12 @@
 // Setup
 + (void) setDeveloperKey:(NSString *)key
          developerSecret:(NSString *)secret;
-+ (NSString *)developerKey;
-+ (NSString *)developerSecret;
++ (NSString *) developerKey;
++ (NSString *) developerSecret;
 
 // View and OpenGL
 + (void) setParentViewController:(UIViewController *)viewController;
-+ (UIViewController *)parentViewController;
++ (UIViewController *) parentViewController;
 
 + (void) setView:(KCGLView *)glView;
 
@@ -40,27 +41,21 @@
 + (void) setYouTubeTitle:(NSString *)title
              description:(NSString *)description 
                 keywords:(NSString *)keywords;
-+ (NSString *)youtubeTitle;
-+ (NSString *)youtubeDescription;
-+ (NSString *)youtubeKeywords;
++ (NSString *) youtubeTitle;
++ (NSString *) youtubeDescription;
++ (NSString *) youtubeKeywords;
 
 + (void) setFacebookTitle:(NSString *)title
                   caption:(NSString *)caption
               description:(NSString *)description;
-+ (NSString *)facebookTitle;
-+ (NSString *)facebookCaption;
-+ (NSString *)facebookDescription;
++ (NSString *) facebookTitle;
++ (NSString *) facebookCaption;
++ (NSString *) facebookDescription;
 
 + (void) setLevel:(NSString *)level
             score:(NSNumber *)score;
 + (NSString *) level;
 + (NSNumber *) score;
-
-// Audio
-+ (BOOL) setAudioResourceName:(NSString *)name
-                    extension:(NSString *)extension;
-+ (NSString *)audioResourceName;
-+ (NSString *)audioResourceExtension;
 
 // Video recording
 + (BOOL) startRecording;
@@ -69,48 +64,48 @@
 + (BOOL) pause;
 
 // Video recording settings
-enum KC_VIDEO_DIMENSIONS {
-    VIDEO_DIMENSIONS_FULL,
-    VIDEO_DIMENSIONS_HALF
-};
-
-enum KC_VIDEO_QUALITY {
-    VIDEO_QUALITY_MEDIUM,
-    VIDEO_QUALITY_HIGH
-};
-
-// Video recording settings
-// Recommend setting is SMART_VIDEO_DIMENSIONS:
-//   All iPads: 512x384
+// For release, use SMART_VIDEO_DIMENSIONS:
+//   iPad 1 and 2: 512x384
+//   iPad 3: 1024x768
 //   All iPhone and iPods: 480x320
 //
-// Other option is FULL_VIDEO_DIMENSIONS:
+// For trailers, use TRAILER_VIDEO_RESOLUTION
 //   All iPads: 1024x768
 //   iPhone/iPod non-retina: 480x320
 //   iPhone/iPad retina: 960x640
 typedef enum {
     SMART_VIDEO_RESOLUTION,
-    FULL_VIDEO_RESOLUTION,
+    TRAILER_VIDEO_RESOLUTION,
 } KC_VIDEO_RESOLUTION;
 
-typedef enum {
-    MEDIUM_VIDEO_QUALITY,
-    HIGH_VIDEO_QUALITY
-} KC_VIDEO_QUALITY;
-
 // Size refers to the pixel dimensions. 
-+ (void) setVideoResolution:(KC_VIDEO_RESOLUTION)resolution
-                    quality:(KC_VIDEO_QUALITY)quality;
++ (void) setVideoResolution:(KC_VIDEO_RESOLUTION)resolution;
 + (KC_VIDEO_RESOLUTION) videoResolution;
-+ (KC_VIDEO_QUALITY) videoQuality;
 
+
+// Audio recording
++ (KCAudio *) playSound:(NSString *)filename
+                   loop:(BOOL)loop;
++ (KCAudio *) playSound:(NSString *)filename;
+
+// Will stop all non-looping sounds. If loop is YES, will also stop
+// all looping sounds.
++ (void) stopAllSounds:(BOOL)loop;
 
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
+
+
+// --------------------------------------------------------
+// For Kamcord internal use, don't worry about these.
 
 // Returns the singleton Kamcord object. You don't ever really need this, just
 // use the static API calls.
 + (Kamcord *) sharedManager;
 
+// Helper to figure calculate the internal scale factor
++ (unsigned int) resolutionScaleFactor;
+
++ (KCAudio *) audioBackground;
 
 @end

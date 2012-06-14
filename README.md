@@ -1,5 +1,10 @@
 # Kamcord 0.9.2
 
+## Code
+
+The code is available at the following git repository: <a href="https://github.com/kamcord/cocos2d-kamcord-ios">https://github.com/kamcord/cocos2d-kamcord-ios</a>.
+
+Please add yourself as a watcher since we frequently release new features and patches.
 
 ## Introduction
 

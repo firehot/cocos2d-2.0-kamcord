@@ -132,10 +132,11 @@ In your application delegate (or wherever you create the <code>UIWindow</code> a
 
 </code></pre>
 </p>
-<li>We will provide you with a per-game Kamcord developer key and developer secret. Please set them when your app initializes or recording won't work.
+<li>We will provide you with a per-game Kamcord developer key and developer secret. Please set them along with your app name when your app initializes or recording won't work.
 <p>
 <pre><code>[Kamcord setDeveloperKey:@"My_Developer_Key"
-         developerSecret:@"My_Developer_Secret"];</code></pre>
+         developerSecret:@"My_Developer_Secret"
+                 appName:@"My_Game_Name"];</code></pre>
 </p>
 </li>
 
@@ -160,12 +161,13 @@ We've tried to keep the Kamcord API as simple as possible. The only class you wi
 
 Kamcord's public API is broken down by different functionalities.
 
-### Developer Key and Secret
+### Developer Key, Secret, and Application Name
 
-You must set your Kamcord developer key and secret using this function:
+You must set your Kamcord developer key, secret, and app name using this function:
 
 	+ (void) setDeveloperKey:(NSString *)key
-	         developerSecret:(NSString *)secret;
+	         developerSecret:(NSString *)secret
+	                 appName:(NSString *)name;
 
 We will give you a key and secret per game you build. We'll give you as many key/secret pairs you need, just don't tell them to anyone else.
 
@@ -287,14 +289,15 @@ Another function you need to set after you call `stopRecording` is:
 	
 These values should be set per video. This metadata will be uploaded along with the video and be used to better organize videos for viewers.
 
-### Developer Key and Secret
+### Developer Key, Secret, and Application Name
 
-As we've mentioned before in the installation section, don't forget to set your Kamcord developer key and secret using this function:
+As we've mentioned before in the installation section, don't forget to set your Kamcord developer key, secret, and application name using this function:
 
 	+ (void) setDeveloperKey:(NSString *)key
-	         developerSecret:(NSString *)secret;
+	         developerSecret:(NSString *)secret
+	                 appName:(NSString *)name;
 
-We will give you a key and secret per game you build. We'll give you as many key/secret pairs you need, just don't tell them to anyone else.
+We will give you a key and secret per game you build. We'll give you as many key/secret pairs you need, just don't tell them to anyone else. We need the name of your game for when we upload user videos to YouTube.
 
 
 ## Examples
@@ -352,7 +355,9 @@ Then do all the Kamcord initialization:
     <b>
     // This must go after CCDirector initialization is finished and before
     // window_ addSubView and makeKeyAndVisible
-    [Kamcord setDeveloperKey:@"kamcord-test" developerSecret:@"kamcord-test"];
+    [Kamcord setDeveloperKey:@"kamcord-test"
+    		 developerSecret:@"kamcord-test"
+    		         appName:@"A Test App"];
     </b>
 	[window_ addSubview:navController_.view];
 	[window_ makeKeyAndVisible];

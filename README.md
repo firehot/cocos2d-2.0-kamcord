@@ -289,17 +289,6 @@ Another function you need to set after you call `stopRecording` is:
 	
 These values should be set per video. This metadata will be uploaded along with the video and be used to better organize videos for viewers.
 
-### Developer Key, Secret, and Application Name
-
-As we've mentioned before in the installation section, don't forget to set your Kamcord developer key, secret, and application name using this function:
-
-	+ (void) setDeveloperKey:(NSString *)key
-	         developerSecret:(NSString *)secret
-	                 appName:(NSString *)name;
-
-We will give you a key and secret per game you build. We'll give you as many key/secret pairs you need, just don't tell them to anyone else. We need the name of your game for when we upload user videos to YouTube.
-
-
 ## Examples
 
 The `Examples` directory has some fully functional examples of how to use Kamcord in your application. You will recognize these as test apps that come bundled with Cocos2D. The following test apps have been ported over to `Kamcord`:

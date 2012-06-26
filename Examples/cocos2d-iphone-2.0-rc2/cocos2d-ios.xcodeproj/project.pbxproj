@@ -8023,8 +8023,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501C7C8E0F91EFFF0024A296 /* Build configuration list for PBXNativeTarget "SpriteTest" */;
 			buildPhases = (
-				501C7C700F91EFFF0024A296 /* Resources */,
 				501C7C840F91EFFF0024A296 /* Sources */,
+				501C7C700F91EFFF0024A296 /* Resources */,
 				501C7C870F91EFFF0024A296 /* Frameworks */,
 			);
 			buildRules = (

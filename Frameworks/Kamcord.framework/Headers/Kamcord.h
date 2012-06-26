@@ -17,6 +17,52 @@
 #import "Common/View/KCViewController.h"
 #import "Common/Core/Audio/KCAudio.h"
 
+#define KAMCORD_VERSION "0.9.3"
+
+@class KCUI;
+
+// --------------------------------------------------------
+// API elements for custom sharing UI.
+// Will be documented soon as we roll out complete
+// support for custom UIs.
+typedef enum
+{
+    NO_ERROR,
+    FACEBOOK_NOT_AUTHENTICATED,
+    FACEBOOK_LOGIN_CANCELLED,
+    
+    TWITTER_NOT_SETUP,
+    TWITTER_NOT_AUTHENTICATED,
+    
+    YOUTUBE_NOT_AUTHENTICATED,
+    YOUTUBE_LOGIN_CANCELLED,
+    
+    EMAIL_NOT_SETUP,
+    EMAIL_CANCELLED,
+    EMAIL_FAILED,
+    NO_INTERNET,
+    NOTHING_TO_SHARE,
+    MESSAGE_TOO_LONG
+} KCShareStatus;
+
+
+@protocol KCShareDelegate 
+@optional
+- (void)facebookAuthSucceeded;
+- (void)twitterAuthSucceeded;
+- (void)youTubeAuthSucceeded;
+
+- (void)facebookShareFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
+- (void)twitterShareFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
+- (void)youTubeUploadFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
+- (void)emailSentWithSuccess:(BOOL)success error:(KCShareStatus)error;
+
+- (void)generalError:(KCShareStatus)error;
+- (void)videoIsReadyToShare:(NSURL *)onlineVideoURL
+                  thumbnail:(NSURL *)onlineThumbnailURL
+                      error:(NSError *)error;
+@end
+
 @interface Kamcord : NSObject
 
 ////////////////////////////////////////////////
@@ -99,45 +145,23 @@ typedef enum {
 
 // --------------------------------------------------------
 // API for custom UIs
+// Will be documented soon as we roll out complete
+// support for custom UIs.
 
-// Authentication
-+ (void)presentFacebookLoginView;
++ (void)showFacebookLoginView;
 + (void)authenticateTwitter; 
-+ (void)presentYoutubeLoginViewInViewController:(UIViewController *)parentViewController;
-
-// One method to share
++ (void)presentYouTubeLoginViewInViewController:(UIViewController *)parentViewController;
 + (void)shareOnFacebook:(BOOL)shareFacebook
-              onTwitter:(BOOL)shareTwitter
-              onYouTube:(BOOL)shareYoutube
+                Twitter:(BOOL)shareTwitter
+                YouTube:(BOOL)shareYoutube 
             withMessage:(NSString *)message;
++ (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController;
++ (void)presentComposeEmailViewInViewController:(UIViewController *)parentViewController
+                                       withBody:(NSString *)bodyText;
 
-// Replay the last video
-+ (void)playVideoInViewController:(UIViewController *)parentViewController;
++ (void)setShareDelegate:(id<KCShareDelegate>)delegate;
 
-// Let people share a video through an email link
-+ (void)presentComposeEmailViewInViewController:(UIViewController *)parentViewController;
-
-// Possible error states as a result of trying to share
-typedef enum {
-    NO_ERROR,
-    FACEBOOK_NOT_AUTHENTICATED,
-    FACEBOOK_LOGIN_CANCELLED,
-    
-    TWITTER_NOT_SETUP,
-    TWITTER_NOT_AUTHENTICATED,
-    
-    YOUTUBE_NOT_AUTHENTICATED,
-    YOUTUBE_LOGIN_CANCELLED,
-    
-    EMAIL_NOT_SETUP,
-    EMAIL_CANCELLED,
-    EMAIL_FAILED,
-    NO_INTERNET,
-    NOTHING_TO_SHARE,
-    MESSAGE_TOO_LONG
-    
-} KCUI_SHARE_FAILURE;
-
++ (BOOL)handleOpenURL:(NSURL *)url;
 
 // --------------------------------------------------------
 // For Kamcord internal use, don't worry about these.
@@ -150,25 +174,5 @@ typedef enum {
 + (unsigned int) resolutionScaleFactor;
 
 + (KCAudio *) audioBackground;
-
-@end
-
-// Delegate for sharing results
-@protocol KCShareDelegate 
-
-@optional
-- (void)facebookShareFinishedWithStatus:(BOOL)success
-                                  error:(KCUI_SHARE_FAILURE)error;
-- (void)twitterShareFinishedWithStatus:(BOOL)success
-                                 error:(KCUI_SHARE_FAILURE)error;
-- (void)youTubeShareFinishedWithStatus:(BOOL)success
-                                 error:(KCUI_SHARE_FAILURE)error;
-- (void)emailSentWithStatus:(BOOL)success
-                      error:(KCUI_SHARE_FAILURE)error;
-
-- (void)generalError:(KCUI_SHARE_FAILURE)error;
-- (void)videoIsReadyToShare:(NSURL *)onlineURL
-                  thumbnail:(NSURL *)thumbnailURL    // For Facebook wall posts
-                      error:(NSError *)error;
 
 @end

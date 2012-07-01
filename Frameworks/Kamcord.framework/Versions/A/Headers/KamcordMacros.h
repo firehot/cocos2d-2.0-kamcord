@@ -49,7 +49,6 @@ do	{																							\
 #endif
 
 
-
 ////////////////////////////////////////////////
 // Macros that make it easier to port Kamcord
 // to different engines.

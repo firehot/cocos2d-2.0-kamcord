@@ -17,7 +17,7 @@
 #import "Common/View/KCViewController.h"
 #import "Common/Core/Audio/KCAudio.h"
 
-#define KAMCORD_VERSION "0.9.3"
+#define KAMCORD_VERSION "0.9.4"
 
 // --------------------------------------------------------
 // The following enum and protocol are only relevant

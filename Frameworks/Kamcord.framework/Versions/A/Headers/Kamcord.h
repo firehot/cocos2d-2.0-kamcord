@@ -75,6 +75,12 @@ typedef enum
 // --------------------------------------------------------
 // Callbacks for case 1 (see below)
 
+// Don't worry about deferring on sharing until these are
+// called. Our internal system will wait until conversion
+// is finished before your share request is executed.
+- (void)videoMergeFinished;
+- (void)videoConversionFinished;
+
 // Auth requests
 - (void)facebookAuthFinishedWithSuccess:(BOOL)success;
 - (void)twitterAuthFinishedWithSuccess:(BOOL)success;

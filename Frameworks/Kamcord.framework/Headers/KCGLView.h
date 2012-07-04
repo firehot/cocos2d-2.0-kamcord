@@ -30,10 +30,3 @@
 - (void) swapBuffers;
 
 @end
-
-// Kamcord category extension
-@interface CCGLView (KCGLView)
-
-- (void)setVideoWriter:(KCVideoWriter *)videoWriter;
-
-@end

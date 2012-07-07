@@ -184,7 +184,7 @@
 
 	[director_ pushScene: scene];
     
-    [self performSelector:@selector(startRecording) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(startRecording) withObject:nil afterDelay:5];
     
     return YES;
 }

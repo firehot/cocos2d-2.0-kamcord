@@ -1,4 +1,4 @@
-# Kamcord 0.9.4
+# Kamcord 0.9.5
 
 ## Code
 
@@ -8,12 +8,11 @@ Please add yourself as a watcher since we frequently release new features and pa
 
 ## Introduction
 
-Kamcord is a built-in gameplay recording technology for iOS. This repository contains a Kamcord SDK that works with cocos2d-2.0-rc2 and allows you, the game developer, to capture gameplay videos with a very simple API.
-Your users can then replay and share these gameplay videos via YouTube, Facebook, Twitter, and email.
+Kamcord is a built-in gameplay recording technology for iOS. This repository contains a Kamcord SDK that works with cocos2d-2.0-rc2 and allows you, the game developer, to capture gameplay videos with a very simple API. Your users can then replay and share these gameplay videos via YouTube, Facebook, Twitter, and email.
 
 In order to use Kamcord, you need a developer key and developer secret. To get these, please sign up at <a target="_blank" href="http://kamcord.com/signup">http://kamcord.com/signup</a>.
 
-**Kamcord works on iOS 5+ and gracefully turns itself off on iOS 4**. You can still run without problems on versions of iOS before iOS 5, though you will not be able to to record video. Kamcord works on the iPhone 3GS, iPhone 4, iPhone 4S, iPod Touch 3G and 4G, and all iPads.
+**Kamcord works on iOS 5+ and gracefully turns itself off on iOS 3-4**. You can still run without problems on versions of iOS before iOS 5, though you will not be able to to record video. Kamcord works on the iPhone 3GS, iPhone 4, iPhone 4S, iPod Touch 3G and 4G, and all iPads.
 
 We will be making lots of improvements and adding many features over the next few months. We'd love to hear your feedback and thoughts. If you have any questions or comments, please don't hesitate to email or call Matt at <a href="mailto:matt@kamcord.com">matt@kamcord.com</a> (650.267.1051).
 
@@ -53,7 +52,7 @@ After 10 seconds, the Kamcord view should appear allowing you to replay a video 
 
 `RenderTextureTest` is different in that it allows you to start and stop recording by pressing the two corresponding buttons at the top right of the screen. When you press `Stop Recording`, you will again see the Kamcord view with options to replay and share. Later on in this documentation, we'll walk through all the code needed to add recording and replay functionalities to `RenderTextureTest`.
 
-There is no practical limit on how long you can record for. Everything gets written immediately to disk and old videos are always being erased, so the only real limitation is the device's hard drive size. Since modern iOS devices have 16+ GB of hard disk space, you can safely record one continuous gameplay video for over 24 hours straight, an upper limit your gamers will probably never run into.
+Video length is limited only by hard drive space, although post-recording processing takes up memory proportional to the length of the recorded video. In light of this, it's best to keep your recorded videos under 5 minutes. This also makes the video smaller so there is a higher chance of success when your users share videos online.
 
 ## Installation
 
@@ -62,9 +61,12 @@ Let's walk through how to get Kamcord into your games.
 ### Framework
 
 <ol>
-<li style="margin: 0";>From <code>Frameworks</code>, drag and drop <code>Kamcord.framework</code> and <code>AWSiOSSDK.framework</code> into your project.
+<li style="margin: 0";>From <code>Frameworks</code>, drag and drop either <code>armv7/Kamcord.framework</code> or <code>armv6+armv7/Kamcord.framework</code> and <code>AWSiOSSDK.framework</code> into your project.
 <p>
 <img src="https://dl.dropbox.com/u/6122/Kamcord/Kamcord%20Frameworks.png" />
+</p>
+<p>
+<img src="https://dl.dropbox.com/u/6122/Kamcord/Amazon%20Framework.png" />
 </p>
 </li>
 <li style="margin: 0";>Drag and drop the files under <code>Frameworks/Resources</code> to your project. For both this and the previous step, make sure to check the box next to the target application you want to link these frameworks and resources to (your game, presumably).
@@ -648,10 +650,6 @@ Kamcord stores videos on Amazon S3, hence why we need `AWSiOSSDK.framework`.
 
 Below are various integration issues that some game developers have run into.
 
-### Application crashes when you press [Done] on the main Kamcord view
-
-Make sure that there is only **one** view controller in your application delegate, and barring some strange cases, that root view controller should be an instance of `KCViewController`. We've seen cases where people have had both a `RootViewController` and a `KCViewController` instantiated inside their app delegate. Removing the `RootViewController` solved the crash problems.
-
 ### Video uploads to kamcord.com don't succeed
 
 Kamcord uploads videos in the background. This allows your user to get back to playing your game right away. Even after your app loses foreground, we still have 10 mins of time to upload. In the case that we can't finish it in those 10 minutes, we queue the job for next time the app regains foreground, and keep doing this until the video upload succeeds.
@@ -666,7 +664,7 @@ To remove these collisions, for every file `SBJson*.o` that complains of duplica
 
 ### armv6
 
-Kamcord only supports i386 and armv7. If you need an armv6 build for some reason, <a href="mailto:matt@kamcord.com" />shoot us an email</a>.
+Kamcord supports i386 and armv7 by default. If you need an armv6 build, <a href="mailto:matt@kamcord.com" />shoot us an email</a>.
 
 ## Contact Us
 

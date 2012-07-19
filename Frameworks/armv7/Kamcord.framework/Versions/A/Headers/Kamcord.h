@@ -54,6 +54,7 @@ typedef enum
     NO_INTERNET,
     
     KAMCORD_SERVER_ERROR,
+    KAMCORD_S3_ERROR,
     
     NOTHING_TO_SHARE,
     MESSAGE_TOO_LONG,
@@ -101,6 +102,38 @@ typedef enum
 - (void)twitterShareFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
 - (void)youTubeUploadFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
 
+
+//
+// Retrying failed uploads/shares
+//
+
+
+// Indicate that we are queueing a failed share for retrying later
+- (void)queueingFailedShareForFutureRetry;
+
+// Indicate that we are retrying failed uploads/shares
+- (void)retryingPreviouslyFailedShares:(NSUInteger)numShares;
+
+// Indicate that we have given up on retrying a failed share
+- (void)stoppingRetryForFailedShare;
+
+
+// The following callback will be made for both Option 1 and Option 2:
+
+// We call this after we've received a video URL from the server.
+// The purpose of this call is to give you two pieces of information:
+//
+//   1. The URL the video will be at once the upload finishes
+//   2. The URL the video thumbnail will be at once the upload finishes
+//
+// We also pass in the data dictionary you passed in with the share request,
+// along with any possible error messages.
+- (void)videoWillBeginUploading:(NSURL *)onlineVideoURL
+                      thumbnail:(NSURL *)onlineThumbnailURL
+                           data:(NSDictionary *)data
+                          error:(NSError *)error;
+
+
 // If the error object is nil, then the video and thumbnail
 // URLs are valid. Otherwise, the video and thumbnail URLs
 // should not be considered valid, even if they are non-nil.
@@ -111,6 +144,22 @@ typedef enum
                        data:(NSDictionary *)data
                       error:(NSError *)error;
 @end
+
+
+// --------------------------------------------------------
+// Callbacks for video playback
+// 
+@protocol KCMoviePlayerDelegate <NSObject>
+
+// Called when the movie player is presented
+- (void)moviePlayerDidAppear;
+
+// Called when the movie player is dismissed
+- (void)moviePlayerDidDisappear;
+
+@end
+
+
 
 @interface Kamcord : NSObject
 
@@ -216,6 +265,17 @@ typedef enum {
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
 
+// When the user shares a video, should the Kamcord UI wait for
+// the video to finish converting before automatically dismissing 
+// the share screen?
+// 
+// This can be turned on for games that experience a performance
+// hit if the video processing is happening in the background
+// while the user is playing the next round or level.
+// + (void)setEnableSynchronousConversionUI:(BOOL)on;
++ (BOOL)enableSynchronousConversionUI;
+
+
 // Every time you call startRecording, Kamcord will delete
 // the previous video if it is not currently being shared.
 // If you want to erase the video before then, you can call
@@ -225,13 +285,13 @@ typedef enum {
 // Please be careful with this call. If there are no pending shares,
 // the video WILL be erased. If, for instance, you call
 // [Kamcord presentVideoPlayerInViewController:] and
-// then [Kamcord deleteLatestVideo] while the video is
+// then [Kamcord cancelConversionForLatestVideo] while the video is
 // being shown, you may get EXC_BAD_ACCESS. 
 //
 // Returns YES if the latest video was deleted NOW.
 // Returns NO if the latest video will be deleted after
 // all sharing has been completed.
-+ (BOOL)deleteLatestVideo;
++ (BOOL)cancelConversionForLatestVideo;
 
 // Optional: Set the maximum video time in seconds. If the recorded video goes over that time,
 //           then only the last N seconds are taken.
@@ -239,7 +299,7 @@ typedef enum {
 + (void)setMaximumVideoTime:(NSUInteger)seconds;
 + (NSUInteger)maximumVideoTime;
 
-+ (BOOL)isUploadingInBackground;
+
 
 // --------------------------------------------------------
 // Custom sharing API
@@ -251,6 +311,13 @@ typedef enum {
 // The "latest video" is defined as the last one for which
 // you called [Kamcord stopRecording].
 + (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController;
+
+
+// The object that will receive callbacks when the movie player
+// is show and dismissed.
++ (void)setMoviePlayerDelegate:(id <KCMoviePlayerDelegate>)delegate;
++ (id <KCMoviePlayerDelegate>)moviePlayerDelegate;
+
 
 // The object that will receive callbacks about sharing state.
 // You must make sure that this object is retained until

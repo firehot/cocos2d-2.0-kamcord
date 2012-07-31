@@ -11,6 +11,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <CoreMedia/CMTime.h>
 
+#import "Kamcord.h"
 #import "KCVideoTracker.h"
 #import "DataStructures/NSMutableArray+QueueAdditions.h"
 
@@ -140,7 +141,7 @@ managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 // local URL to that file path. Returns YES on success.
 - (BOOL)addNewVideoClip;
 
-- (void)stopAllSounds:(BOOL)loop;
+- (void)stopAllSounds:(KC_SOUND_TYPE)soundType;
 
 - (void)updateVideoTrackerSharing:(KCVideoShareInfo *)shareInfo;
 

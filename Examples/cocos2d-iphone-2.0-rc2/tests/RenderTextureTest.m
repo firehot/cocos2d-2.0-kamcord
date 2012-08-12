@@ -228,12 +228,12 @@ Class restartAction()
 {
     if (!self.audioPlayer1)
     {
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test8" withExtension:@"caf"];
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"caf"];
         self.audioPlayer1 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     }
     
     if ([self.audioPlayer1 play]) {
-        self.sound1 = [Kamcord playSound:@"test8.caf"];
+        self.sound1 = [Kamcord playSound:@"test1.caf"];
     }
 }
 
@@ -241,12 +241,12 @@ Class restartAction()
 {
     if (!self.audioPlayer2)
     {
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test3" withExtension:@"m4a"];
+        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test2" withExtension:@"m4a"];
         self.audioPlayer2 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     }
     
     if ([self.audioPlayer2 play]) {
-        self.sound2 = [Kamcord playSound:@"test3.m4a"];
+        self.sound2 = [Kamcord playSound:@"test2.m4a"];
     }
 }
 

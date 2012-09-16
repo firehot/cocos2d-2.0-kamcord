@@ -354,7 +354,7 @@
 
 		// Parse everything automatically
 		NSArray *array = [NSArray arrayWithObjects:@"name", @"type", @"width", @"height", @"gid", nil];
-		for( NSObject *key in array ) {
+		for( NSString *key in array ) {
 			NSObject *obj = [attributeDict objectForKey:key];
 			if( obj )
 				[dict setObject:obj forKey:key];

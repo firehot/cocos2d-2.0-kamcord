@@ -108,11 +108,7 @@
 			rect_.origin.y,
 			rect_.size.width,
 			rect_.size.height,
-			rotated_,
-            offsetInPixels_.x,
-            offsetInPixels_.y,
-            originalSizeInPixels_.width,
-            originalSizeInPixels_.height
+			rotated_
 			];
 }
 

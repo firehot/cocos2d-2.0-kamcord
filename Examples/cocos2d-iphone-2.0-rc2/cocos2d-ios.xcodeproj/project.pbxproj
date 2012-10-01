@@ -29,12 +29,6 @@
 		0A3448651605E32C00182EB3 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448611605E32C00182EB3 /* Kamcord.framework */; };
 		0A3448661605E32C00182EB3 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448611605E32C00182EB3 /* Kamcord.framework */; };
 		0A3448671605E32C00182EB3 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448611605E32C00182EB3 /* Kamcord.framework */; };
-		0A3448691605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
-		0A34486A1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
-		0A34486B1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
-		0A34486C1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
-		0A34486D1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
-		0A34486E1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3448681605E33200182EB3 /* AWSiOSSDK.framework */; };
 		0A3448781605E34500182EB3 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A34486F1605E34500182EB3 /* FBDialog.bundle */; };
 		0A3448791605E34500182EB3 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A34486F1605E34500182EB3 /* FBDialog.bundle */; };
 		0A34487A1605E34500182EB3 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A34486F1605E34500182EB3 /* FBDialog.bundle */; };
@@ -77,12 +71,6 @@
 		0A34489F1605E34600182EB3 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448761605E34500182EB3 /* VersionInfo.plist */; };
 		0A3448A01605E34600182EB3 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448761605E34500182EB3 /* VersionInfo.plist */; };
 		0A3448A11605E34600182EB3 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448761605E34500182EB3 /* VersionInfo.plist */; };
-		0A3448A21605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
-		0A3448A31605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
-		0A3448A41605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
-		0A3448A51605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
-		0A3448A61605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
-		0A3448A71605E34600182EB3 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A3448771605E34500182EB3 /* ShareKit.bundle */; };
 		0A44E1D71588AD1C007097CE /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A44E1D41588AD1C007097CE /* test.wav */; };
 		0A44E1D81588AD1C007097CE /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A44E1D41588AD1C007097CE /* test.wav */; };
 		0A44E1D91588AD1C007097CE /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A44E1D41588AD1C007097CE /* test.wav */; };
@@ -3891,7 +3879,6 @@
 		05CA7B0A10ED67CE00F12774 /* ActionsWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsWithBlocks.h; sourceTree = "<group>"; };
 		05CA7B0B10ED67CE00F12774 /* ActionsWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionsWithBlocks.m; sourceTree = "<group>"; };
 		0A3448611605E32C00182EB3 /* Kamcord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kamcord.framework; path = "../../Frameworks/armv6+armv7/Kamcord.framework"; sourceTree = "<group>"; };
-		0A3448681605E33200182EB3 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../../Frameworks/armv6+armv7/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 		0A34486F1605E34500182EB3 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBDialog.bundle; path = "../../Frameworks/armv6+armv7/Resources/FBDialog.bundle"; sourceTree = "<group>"; };
 		0A3448701605E34500182EB3 /* GTMOAuth2ViewTouch.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = GTMOAuth2ViewTouch.nib; path = "../../Frameworks/armv6+armv7/Resources/GTMOAuth2ViewTouch.nib"; sourceTree = "<group>"; };
 		0A3448711605E34500182EB3 /* Kamcord.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kamcord.bundle; path = "../../Frameworks/armv6+armv7/Resources/Kamcord.bundle"; sourceTree = "<group>"; };
@@ -3899,7 +3886,6 @@
 		0A3448741605E34500182EB3 /* KCVideoTracker.mom */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = KCVideoTracker.mom; sourceTree = "<group>"; };
 		0A3448751605E34500182EB3 /* KCVideoTracker.omo */ = {isa = PBXFileReference; lastKnownFileType = file; path = KCVideoTracker.omo; sourceTree = "<group>"; };
 		0A3448761605E34500182EB3 /* VersionInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VersionInfo.plist; sourceTree = "<group>"; };
-		0A3448771605E34500182EB3 /* ShareKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ShareKit.bundle; path = "../../Frameworks/armv6+armv7/Resources/ShareKit.bundle"; sourceTree = "<group>"; };
 		0A44E1D41588AD1C007097CE /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = test.wav; path = Resources/test.wav; sourceTree = "<group>"; };
 		0A6F2CCA15A053BF00DBAE5D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0AC59EEA158144F4006ADD43 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -4998,7 +4984,6 @@
 				0AC59F11158145C1006ADD43 /* SystemConfiguration.framework in Frameworks */,
 				0AC59F12158145C1006ADD43 /* Twitter.framework in Frameworks */,
 				0A3448631605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A34486A1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5095,7 +5080,6 @@
 				0AC5A1261581EA4C006ADD43 /* SystemConfiguration.framework in Frameworks */,
 				0AC5A1271581EA4C006ADD43 /* Twitter.framework in Frameworks */,
 				0A3448671605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A34486E1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5142,7 +5126,6 @@
 				0AC5A1061581E8A5006ADD43 /* SystemConfiguration.framework in Frameworks */,
 				0AC5A1071581E8A5006ADD43 /* Twitter.framework in Frameworks */,
 				0A3448641605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A34486B1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5424,7 +5407,6 @@
 				0AC5A1161581E9A0006ADD43 /* SystemConfiguration.framework in Frameworks */,
 				0AC5A1171581E9A0006ADD43 /* Twitter.framework in Frameworks */,
 				0A3448651605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A34486C1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5482,7 +5464,6 @@
 				508CA7D51193270F003AC397 /* libcocos2d.a in Frameworks */,
 				508CA7D61193270F003AC397 /* libz.dylib in Frameworks */,
 				0A3448661605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A34486D1605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5642,7 +5623,6 @@
 				0AC5A1361581EB84006ADD43 /* SystemConfiguration.framework in Frameworks */,
 				0AC5A1371581EB84006ADD43 /* Twitter.framework in Frameworks */,
 				0A3448621605E32C00182EB3 /* Kamcord.framework in Frameworks */,
-				0A3448691605E33200182EB3 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5918,7 +5898,6 @@
 				0A3448711605E34500182EB3 /* Kamcord.bundle */,
 				0A3448721605E34500182EB3 /* KCShareKit.bundle */,
 				0A3448731605E34500182EB3 /* KCVideoTracker.momd */,
-				0A3448771605E34500182EB3 /* ShareKit.bundle */,
 				E0C5588E11FE4CF100B9E4CB /* zwoptex */,
 				50CBA4A711CBD7FB007B009D /* bugs */,
 				50B77511119AF58100F567F4 /* Particles */,
@@ -5948,7 +5927,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0A3448681605E33200182EB3 /* AWSiOSSDK.framework */,
 				0AC59EEA158144F4006ADD43 /* Accounts.framework */,
 				50E3876E10446C6E00150883 /* AudioToolbox.framework */,
 				50E3876C10446C6E00150883 /* AVFoundation.framework */,
@@ -9162,7 +9140,6 @@
 				0A3448911605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A3448971605E34500182EB3 /* KCVideoTracker.omo in Resources */,
 				0A34489D1605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A31605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9403,7 +9380,6 @@
 				0A3448951605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A34489B1605E34600182EB3 /* KCVideoTracker.omo in Resources */,
 				0A3448A11605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A71605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9479,7 +9455,6 @@
 				0A3448921605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A3448981605E34500182EB3 /* KCVideoTracker.omo in Resources */,
 				0A34489E1605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A41605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10344,7 +10319,6 @@
 				0A3448931605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A3448991605E34600182EB3 /* KCVideoTracker.omo in Resources */,
 				0A34489F1605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A51605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10961,7 +10935,6 @@
 				0A3448901605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A3448961605E34500182EB3 /* KCVideoTracker.omo in Resources */,
 				0A34489C1605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A21605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11407,7 +11380,6 @@
 				0A3448941605E34500182EB3 /* KCVideoTracker.mom in Resources */,
 				0A34489A1605E34600182EB3 /* KCVideoTracker.omo in Resources */,
 				0A3448A01605E34600182EB3 /* VersionInfo.plist in Resources */,
-				0A3448A61605E34600182EB3 /* ShareKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13287,7 +13259,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -13304,7 +13279,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
@@ -13315,7 +13290,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = RotateWorldTest;
-				VALID_ARCHS = "armv7s armv7 i386";
+				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Debug;
 		};
@@ -13323,7 +13298,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -13339,7 +13317,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
@@ -13350,7 +13328,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = RotateWorldTest;
-				VALID_ARCHS = "armv7s armv7 i386";
+				VALID_ARCHS = "armv6 armv7 i386";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -14800,7 +14778,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = ".git *.nib *.lproj *.framework *.gch *.xcode* (*) CVS .svn";
@@ -14836,7 +14817,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = ".git *.nib *.lproj *.framework *.gch *.xcode* (*) CVS .svn";

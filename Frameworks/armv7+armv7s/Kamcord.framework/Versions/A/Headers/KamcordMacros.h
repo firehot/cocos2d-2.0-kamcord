@@ -7,7 +7,7 @@
 //
 
 // Tell Kamcord which version we're using
-#define COCOS2D_2_0 1
+#define COCOS2D_2_1 1
 
 
 

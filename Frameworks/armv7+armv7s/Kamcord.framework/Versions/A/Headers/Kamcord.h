@@ -18,7 +18,7 @@
 #import "Common/Core/Audio/KCAudio.h"
 #import "Common/Core/Audio/KCSound.h"
 
-#define KAMCORD_VERSION "0.9.7"
+FOUNDATION_EXPORT NSString *const KamcordVersion;
 
 // --------------------------------------------------------
 // The following enum and protocol are only relevant
@@ -150,13 +150,27 @@ typedef enum
 // --------------------------------------------------------
 // Callbacks for video playback
 // 
-@protocol KCMoviePlayerDelegate <NSObject>
+@protocol KCVideoDelegate <NSObject>
+
+@optional
+
+// Called when the Kamcord share view is dismissed
+- (void)kamcordViewDidDisappear;
 
 // Called when the movie player is presented
 - (void)moviePlayerDidAppear;
 
 // Called when the movie player is dismissed
 - (void)moviePlayerDidDisappear;
+
+// Called when a thumbnail image for the video is ready
+- (void)thumbnailReady:(CGImageRef)thumbnail;
+
+#if KCUNITY
+// Called when the thumbnail image for the video is ready
+- (void)thumbnailReadyAtFilePath:(NSString *)thumbnailFilePath;
+#endif
+
 
 @end
 
@@ -236,10 +250,11 @@ typedef enum
 // (for example, on startup, or an end of level screen).
 + (BOOL)prepareNextVideo;
 
-+ (BOOL) startRecording;
-+ (BOOL) stopRecording;
-+ (BOOL) resume;
-+ (BOOL) pause;
++ (BOOL)startRecording;
++ (BOOL)stopRecording;
++ (BOOL)stopRecordingAndDiscardVideo;
++ (BOOL)resume;
++ (BOOL)pause;
 
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
@@ -347,8 +362,8 @@ typedef enum
 
 // The object that will receive callbacks when the movie player
 // is show and dismissed.
-+ (void)setMoviePlayerDelegate:(id <KCMoviePlayerDelegate>)delegate;
-+ (id <KCMoviePlayerDelegate>)moviePlayerDelegate;
++ (void)setKCVideoDelegate:(id <KCVideoDelegate>)delegate;
++ (id <KCVideoDelegate>)KCVideoDelegate;
 
 
 // The object that will receive callbacks about sharing state.

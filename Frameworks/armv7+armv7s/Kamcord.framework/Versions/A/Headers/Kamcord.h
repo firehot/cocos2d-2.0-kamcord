@@ -18,6 +18,8 @@
 #import "Common/Core/Audio/KCAudio.h"
 #import "Common/Core/Audio/KCSound.h"
 
+#import "Common/Core/KCAnalytics.h"
+
 FOUNDATION_EXPORT NSString *const KamcordVersion;
 
 // --------------------------------------------------------
@@ -148,14 +150,17 @@ typedef enum
 
 
 // --------------------------------------------------------
-// Callbacks for video playback
+// General Kamcord callbacks
 // 
-@protocol KCVideoDelegate <NSObject>
+@protocol KamcordDelegate <NSObject>
 
 @optional
 
+// Called when the Kamcord main view is dismissed
+- (void)mainViewDidDisappear;
+
 // Called when the Kamcord share view is dismissed
-- (void)kamcordViewDidDisappear;
+- (void)shareViewDidDisappear;
 
 // Called when the movie player is presented
 - (void)moviePlayerDidAppear;
@@ -171,6 +176,11 @@ typedef enum
 - (void)thumbnailReadyAtFilePath:(NSString *)thumbnailFilePath;
 #endif
 
+// Called when the video has started to upload
+- (void)videoWillUploadToURL:(NSString *)kamcordURLString;
+
+// Called when the video has finished uploading
+- (void)videoFinishedUploadingWithSuccess:(BOOL)success;
 
 @end
 
@@ -203,11 +213,13 @@ typedef enum
 // Social media
 // YouTube
 + (void) setYouTubeTitle:(NSString *)title
-             description:(NSString *)description 
+             description:(NSString *)description
                 tags:(NSString *)tags;
++ (void)setYouTubeVideoCategory:(NSString *)category;
 + (NSString *) youtubeTitle;
 + (NSString *) youtubeDescription;// Email
 + (NSString *) youtubeTags;
++ (NSString *)youtubeCategory;
 
 + (void) setDefaultYouTubeMessage:(NSString *)message;
 + (NSString *)defaultYouTubeMessage;
@@ -360,10 +372,9 @@ typedef enum
 + (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController;
 
 
-// The object that will receive callbacks when the movie player
-// is show and dismissed.
-+ (void)setKCVideoDelegate:(id <KCVideoDelegate>)delegate;
-+ (id <KCVideoDelegate>)KCVideoDelegate;
+// The object that will receive all non-share related callbacks.
++ (void)setDelegate:(id <KamcordDelegate>)delegate;
++ (id <KamcordDelegate>)delegate;
 
 
 // The object that will receive callbacks about sharing state.
@@ -411,7 +422,9 @@ typedef enum
 + (BOOL)shareVideoOnFacebook:(BOOL)shareFacebook
                      Twitter:(BOOL)shareTwitter
                      YouTube:(BOOL)shareYouTube
-                 withMessage:(NSString *)message;
+                       Email:(BOOL)shareEmail
+                 withMessage:(NSString *)message
+mailViewParentViewController:(UIViewController *)parentViewController;
 
 // Show the send email dialog with the Kamcord URL in the message.
 // Any additional body text you'd like to add should be passed in the
@@ -449,8 +462,6 @@ typedef enum
                          data:(NSDictionary *)data;
 
 
-
-
 + (BOOL)handleOpenURL:(NSURL *)url;
 
 // --------------------------------------------------------
@@ -458,11 +469,18 @@ typedef enum
 
 // Returns the singleton Kamcord object. You don't ever really need this, just
 // use the static API calls.
-+ (Kamcord *) sharedManager;
++ (Kamcord *)sharedManager;
+
++ (void)track:(NSString *)eventName
+   properties:(NSDictionary *)properties
+analyticsType:(KC_ANALYTICS_TYPE)analyticsType;
 
 // Helper to figure calculate the internal scale factor
-+ (unsigned int) resolutionScaleFactor;
++ (unsigned int)resolutionScaleFactor;
 
-+ (KCAudio *) audioBackground;
++ (KCAudio *)audioBackground;
+
++ (BOOL)isIPhone5;
++ (BOOL)checkInternet;
 
 @end

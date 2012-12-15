@@ -17,10 +17,13 @@
 #import "Common/View/KCViewController.h"
 #import "Common/Core/Audio/KCAudio.h"
 #import "Common/Core/Audio/KCSound.h"
+#import <MessageUI/MessageUI.h>
 
 #import "Common/Core/KCAnalytics.h"
 
-FOUNDATION_EXPORT NSString *const KamcordVersion;
+// --------------------------------------------------------
+// Current verion is 0.9.96 (12/13/2012)
+FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 // --------------------------------------------------------
 // The following enum and protocol are only relevant
@@ -65,6 +68,13 @@ typedef enum
     VIDEO_PROCESSING_ERROR,
 } KCShareStatus;
 
+typedef enum
+{
+    SUCCESS,
+    NO_ACCOUNT,
+    ACCESS_NOT_GRANTED,
+} KCTwitterAuthStatus;
+
 
 @protocol KCShareDelegate <NSObject>
 
@@ -90,7 +100,7 @@ typedef enum
 
 // Auth requests
 - (void)facebookAuthFinishedWithSuccess:(BOOL)success;
-- (void)twitterAuthFinishedWithSuccess:(BOOL)success;
+- (void)twitterAuthFinishedWithSuccess:(BOOL)success status:(KCTwitterAuthStatus)status;
 - (void)youTubeAuthFinishedWithSuccess:(BOOL)success;
 
 // Beginning of share process
@@ -104,6 +114,8 @@ typedef enum
 - (void)facebookShareFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
 - (void)twitterShareFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
 - (void)youTubeUploadFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
+
+- (void)shareCancelled;
 
 
 //
@@ -270,6 +282,14 @@ typedef enum
 
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
++ (void) showViewInViewController:(UIViewController *)parentViewController;
+
+// Displays the old Kamcord View, deprecated since 0.9.96
++ (void)showViewDeprecated;
+
++ (UIView *) getThumbnailView:(NSUInteger)width
+         parentViewController:(UIViewController *)parentViewController;
+
 
 // Video recording settings
 // For release, use SMART_VIDEO_DIMENSIONS:
@@ -474,6 +494,8 @@ mailViewParentViewController:(UIViewController *)parentViewController;
 + (void)track:(NSString *)eventName
    properties:(NSDictionary *)properties
 analyticsType:(KC_ANALYTICS_TYPE)analyticsType;
+
++ (NSString *)kamcordSDKVersion;
 
 // Helper to figure calculate the internal scale factor
 + (unsigned int)resolutionScaleFactor;

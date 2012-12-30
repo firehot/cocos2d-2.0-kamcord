@@ -51,46 +51,52 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 + (KCDeviceOrientation) deviceOrientation;
 + (BOOL)useUIKitAutorotation;
 
-// Social media
-// YouTube
+// Social media default messages.
 + (void) setYouTubeTitle:(NSString *)title
              description:(NSString *)description
-                tags:(NSString *)tags;
+                    tags:(NSString *)tags;
 + (void)setYouTubeVideoCategory:(NSString *)category;
-+ (NSString *) youtubeTitle;
-+ (NSString *) youtubeDescription;// Email
-+ (NSString *) youtubeTags;
++ (NSString *)youtubeTitle;
++ (NSString *)youtubeDescription;
++ (NSString *)youtubeTags;
 + (NSString *)youtubeCategory;
 
-+ (void) setDefaultYouTubeMessage:(NSString *)message;
-+ (NSString *)defaultYouTubeMessage;
-
-// Facebook
 + (void) setFacebookTitle:(NSString *)title
                   caption:(NSString *)caption
               description:(NSString *)description;
-+ (NSString *) facebookTitle;
-+ (NSString *) facebookCaption;
-+ (NSString *) facebookDescription;
++ (NSString *)facebookTitle;
++ (NSString *)facebookCaption;
++ (NSString *)facebookDescription;
 
-+ (void) setDefaultFacebookMessage:(NSString *)message;
++ (void)setDefaultEmailSubject:(NSString *)subject;
++ (NSString *)defaultEmailSubject;
+
+// The default message to show in the share box regardless of network shared to.
++ (void)setDefaultMessage:(NSString *)message;
++ (NSString *)defaultMessage;
+
+
+// Start of depcrecated social media default messages.
+// These only work when using showViewDepcrecated.
++ (void)setDefaultYouTubeMessage:(NSString *)message;
++ (NSString *)defaultYouTubeMessage;
+
++ (void)setDefaultFacebookMessage:(NSString *)message;
 + (NSString *)defaultFacebookMessage;
 
-// Twitter
 + (void)setDefaultTweet:(NSString *)tweet;
 + (NSString *)defaultTweet;
 
-// Email
 + (void)setDefaultEmailSubject:(NSString *)subject
                           body:(NSString *)body;
-+ (NSString *)defaultEmailSubject;
 + (NSString *)defaultEmailBody;
+// End of depcrecated social media default messages.
 
 
-+ (void) setLevel:(NSString *)level
-            score:(NSNumber *)score;
-+ (NSString *) level;
-+ (NSNumber *) score;
++ (void)setLevel:(NSString *)level
+           score:(NSNumber *)score;
++ (NSString *)level;
++ (NSNumber *)score;
 
 ////////////////////
 // Video recording
@@ -143,9 +149,9 @@ typedef enum {
 
 
 // Audio recording
-+ (KCAudio *) playSound:(NSString *)filename
-                   loop:(BOOL)loop;
-+ (KCAudio *) playSound:(NSString *)filename;
++ (KCAudio *)playSound:(NSString *)filename
+                  loop:(BOOL)loop;
++ (KCAudio *)playSound:(NSString *)filename;
 + (KCAudio *)playSoundAtURL:(NSURL *)fileURL
                        loop:(BOOL)loop;
 + (KCAudio *)playSoundAtURL:(NSURL *)fileURL;

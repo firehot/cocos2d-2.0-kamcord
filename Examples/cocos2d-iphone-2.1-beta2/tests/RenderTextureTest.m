@@ -177,7 +177,10 @@ Class restartAction()
 		[self addChild:menu];
 		[menu alignItemsVertically];
 		[menu setPosition:ccp(s.width-80, s.height-30)];
-		
+
+        // Not needed, used to illustrate how KamcordDelegate may be used.
+        [Kamcord setDelegate:self];
+
 		if( [NSThread currentThread] != [director runningThread] )
 			[(CCGLView*)[director view] unlockOpenGLContext];
 	}
@@ -195,6 +198,15 @@ Class restartAction()
     [Kamcord showView];
 }
 
+- (void)shareButtonPressedWithMessage:(NSString *)message
+                      shareToFacebook:(BOOL)facebook
+                       shareToTwitter:(BOOL)twitter
+                       shareToYouTube:(BOOL)youtube
+                       shareWithEmail:(BOOL)email
+{
+    NSLog(@"Video shared on facebook: %d, twitter: %d, youtube: %d, email: %d with message %@",
+         facebook, twitter, youtube, email, message);
+}
 
 -(NSString*) title
 {

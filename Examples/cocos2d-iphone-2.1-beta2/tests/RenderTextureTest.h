@@ -10,7 +10,7 @@
 -(NSString*) subtitle;
 @end
 
-@interface RenderTextureSave : RenderTextureTest
+@interface RenderTextureSave : RenderTextureTest<KamcordDelegate>
 {
 	CCRenderTexture* target;
 	CCSprite* brush;

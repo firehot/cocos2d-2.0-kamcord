@@ -343,6 +343,7 @@ analyticsType:(KC_ANALYTICS_TYPE)analyticsType;
 + (KCAudio *)audioBackground;
 
 + (BOOL)isIPhone5;
++ (BOOL)isEnabled;
 + (BOOL)checkInternet;
 
 @end

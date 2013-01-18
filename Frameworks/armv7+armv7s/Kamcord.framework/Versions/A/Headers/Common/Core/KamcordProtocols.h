@@ -13,13 +13,9 @@
 
 @optional
 
-// Called when the Kamcord main view appears and disappears
+// Called when the Kamcord view appears and disappears
 - (void)mainViewDidAppear;
 - (void)mainViewDidDisappear;
-
-// Called when the Kamcord share view appears and disappears
-- (void)shareViewDidAppear;
-- (void)shareViewDidDisappear;
 
 // Called when the movie player appears and disappears
 - (void)moviePlayerDidAppear;

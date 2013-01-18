@@ -16,6 +16,7 @@
 // Convenient for game developers
 #import "KamcordMacros.h"
 #import "Common/View/KCViewController.h"
+#import "Common/Core/Audio/KCAudioListener.h"
 #import "Common/Core/Audio/KCAudio.h"
 #import "Common/Core/Audio/KCSound.h"
 #import <MessageUI/MessageUI.h>
@@ -23,7 +24,7 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 0.9.97 (12/27/2012)
+// Current verion is 0.9.98 (1/15/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 
@@ -52,11 +53,9 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 + (BOOL)useUIKitAutorotation;
 
 // Social media default messages.
-+ (void) setYouTubeTitle:(NSString *)title
-             description:(NSString *)description
-                    tags:(NSString *)tags;
++ (void) setYouTubeDescription:(NSString *)description
+                          tags:(NSString *)tags;
 + (void)setYouTubeVideoCategory:(NSString *)category;
-+ (NSString *)youtubeTitle;
 + (NSString *)youtubeDescription;
 + (NSString *)youtubeTags;
 + (NSString *)youtubeCategory;
@@ -71,9 +70,9 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 + (void)setDefaultEmailSubject:(NSString *)subject;
 + (NSString *)defaultEmailSubject;
 
-// The default message to show in the share box regardless of network shared to.
-+ (void)setDefaultMessage:(NSString *)message;
-+ (NSString *)defaultMessage;
+// The default text to show in the share box regardless of network shared to.
++ (void)setDefaultTitle:(NSString *)title;
++ (NSString *)defaultTitle;
 
 
 // Start of depcrecated social media default messages.
@@ -149,6 +148,7 @@ typedef enum {
 
 
 // Audio recording
++ (id <KCAudioListener>)audioListener;
 + (KCAudio *)playSound:(NSString *)filename
                   loop:(BOOL)loop;
 + (KCAudio *)playSound:(NSString *)filename;

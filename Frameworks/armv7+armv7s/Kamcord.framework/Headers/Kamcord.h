@@ -24,7 +24,7 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 0.9.98 (1/15/2013)
+// Current verion is 0.9.99 (1/23/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 
@@ -67,8 +67,9 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 + (NSString *)facebookCaption;
 + (NSString *)facebookDescription;
 
-+ (void)setDefaultEmailSubject:(NSString *)subject;
-+ (NSString *)defaultEmailSubject;
++ (void)setDefaultEmailBody:(NSString *)body;
++ (NSString *)defaultEmailBody;
+
 
 // The default text to show in the share box regardless of network shared to.
 + (void)setDefaultTitle:(NSString *)title;
@@ -88,7 +89,7 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 + (void)setDefaultEmailSubject:(NSString *)subject
                           body:(NSString *)body;
-+ (NSString *)defaultEmailBody;
++ (NSString *)defaultEmailSubject;
 // End of depcrecated social media default messages.
 
 
@@ -107,6 +108,7 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 // processing and a slight drop in FPS won't be noticed
 // (for example, on startup, or an end of level screen).
 + (BOOL)prepareNextVideo;
++ (BOOL)prepareNextVideo:(BOOL)async;
 
 + (BOOL)startRecording;
 + (BOOL)stopRecording;
@@ -123,8 +125,8 @@ FOUNDATION_EXPORT NSString * const KamcordVersion;
 // Displays the old Kamcord View, deprecated since 0.9.96
 + (void)showViewDeprecated;
 
-+ (UIView *) getThumbnailView:(NSUInteger)width
-         parentViewController:(UIViewController *)parentViewController;
++ (UIView *)getThumbnailView:(NSUInteger)width
+        parentViewController:(UIViewController *)parentViewController;
 
 
 // Video recording settings

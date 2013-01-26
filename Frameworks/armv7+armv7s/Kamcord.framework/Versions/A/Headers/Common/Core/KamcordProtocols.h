@@ -24,6 +24,12 @@
 // Called when a thumbnail image for the video is ready
 - (void)thumbnailReady:(CGImageRef)thumbnail;
 
+// Called when the video has finished merging
+- (void)videoFinishedMerging:(BOOL)success;
+
+// Called when the video has finished converting
+- (void)videoFinishedConverting:(BOOL)success;
+
 #if KCUNITY
 // Called when the thumbnail image for the video is ready
 - (void)thumbnailReadyAtFilePath:(NSString *)thumbnailFilePath;
@@ -146,7 +152,6 @@ typedef enum
 - (void)youTubeUploadFinishedWithSuccess:(BOOL)success error:(KCShareStatus)error;
 
 - (void)shareCancelled;
-
 
 //
 // Retrying failed uploads/shares

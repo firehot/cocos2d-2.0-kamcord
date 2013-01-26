@@ -211,6 +211,7 @@ typedef enum
 @property (nonatomic, retain) NSURL * onlineYouTubeVideoURL;
 
 @property (nonatomic, assign) BOOL uploadedToKamcord;
+@property (nonatomic, assign) float uploadProgress;
 
 #if (COCOS2D_1_0_1 || COCOS2D_2_0 || COCOS2D_2_1)
 // Audio

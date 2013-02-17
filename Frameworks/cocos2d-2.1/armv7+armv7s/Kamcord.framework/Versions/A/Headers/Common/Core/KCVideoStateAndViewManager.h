@@ -62,7 +62,7 @@
 // Video
 - (BOOL)beginVideoForce:(BOOL)force;
 - (BOOL)endVideo;
-
+- (BOOL)endVideoAndDiscardVideo;
 - (BOOL)endVideoAndAddSounds:(NSArray *)sounds;
 
 - (BOOL)startRecording;

@@ -24,7 +24,7 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 1.0.1 2/6/2013)
+// Current verion is 1.0.1 2/15/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 static NSString * const DEVICE_TYPE_IPOD        = @"DEVICE_TYPE_IPOD";
@@ -115,6 +115,9 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 + (NSString *)level;
 + (NSNumber *)score;
 
++ (void)setVideoMetadata:(NSDictionary *)metadata;
++ (NSDictionary *)videoMetadata;
+
 ////////////////////
 // Video recording
 //
@@ -138,9 +141,6 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 // Displays the Kamcord view inside the previously set parentViewController;
 + (void) showView;
 + (void) showViewInViewController:(UIViewController *)parentViewController;
-
-// Displays the old Kamcord View, deprecated since 0.9.96
-+ (void)showViewDeprecated;
 
 + (UIView *)getThumbnailViewWithWidth:(NSUInteger)width
                                height:(NSUInteger)height

@@ -79,6 +79,7 @@
 @property (nonatomic, retain) UIActivityIndicatorView * refreshSpinner;
 
 @property (nonatomic, retain) NSMutableArray * videoEntities;
+@property (nonatomic, retain) VideoEntity * userVideo;
 @property (nonatomic, retain) NSMutableData * httpResponseData;
 @property (nonatomic, retain) KCMPMoviePlayerViewController * player;
 @property (nonatomic, retain) NSDateFormatter * dateFormatter;

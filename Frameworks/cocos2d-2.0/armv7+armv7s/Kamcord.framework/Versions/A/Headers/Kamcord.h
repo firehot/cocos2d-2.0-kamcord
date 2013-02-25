@@ -16,7 +16,6 @@
 // Convenient for game developers
 #import "KamcordMacros.h"
 #import "Common/View/KCViewController.h"
-#import "Common/Core/Audio/KCAudioListener.h"
 #import "Common/Core/Audio/KCAudio.h"
 #import "Common/Core/Audio/KCSound.h"
 #import <MessageUI/MessageUI.h>
@@ -33,6 +32,8 @@ static NSString * const DEVICE_TYPE_IPAD_2      = @"DEVICE_TYPE_IPAD_2";
 static NSString * const DEVICE_TYPE_IPAD_MINI   = @"DEVICE_TYPE_IPAD_MINI";
 static NSString * const DEVICE_TYPE_IPHONE_3GS  = @"DEVICE_TYPE_IPHONE_3GS";
 static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
+
+@protocol KCAudioListener;
 
 @interface Kamcord : NSObject
 
@@ -148,24 +149,20 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 
 
 // Video recording settings
-// For release, use SMART_VIDEO_DIMENSIONS:
-//   iPad 1 and 2: 512x384
-//   iPad 3: 1024x768
-//   All iPhone and iPods: 480x320
-//
+// For release, use oen of
+//     - SMART_VIDEO_RESOLUTION/LOW_VIDEO_RESOLUTION
+//     - MEDIUM_VIDEO_RESOLUTION
 // For trailers, use TRAILER_VIDEO_RESOLUTION
-//   All iPads: 1024x768
-//   iPhone/iPod non-retina: 480x320
-//   iPhone/iPad retina: 960x640
 typedef enum {
-    SMART_VIDEO_RESOLUTION,
-    TRAILER_VIDEO_RESOLUTION,
+    SMART_VIDEO_RESOLUTION      = 0,
+    LOW_VIDEO_RESOLUTION        = 0,
+    MEDIUM_VIDEO_RESOLUTION     = 1,
+    TRAILER_VIDEO_RESOLUTION    = 2,
 } KC_VIDEO_RESOLUTION;
 
 // Size refers to the pixel dimensions. 
 + (void) setVideoResolution:(KC_VIDEO_RESOLUTION)resolution;
 + (KC_VIDEO_RESOLUTION) videoResolution;
-
 
 // Audio recording
 + (id <KCAudioListener>)audioListener;
@@ -239,6 +236,24 @@ typedef enum
 + (NSUInteger)maximumVideoLength;
 
 
+// --------------------------------------------------------
+// For video push notifications
+
+// This method will query the Kamcord servers for metadata you've previously
+// associated with an uploaded video via the setVideoMetadata API call.
+// When the server request returns, the original metadata you had set
+// will be returned to you as the first argument of the block.
+// There is also NSError argument in the block that will indicate if the
+// request was successful (for example, if the connection failed due to
+// a poor internet connection). The returned NSDictionary is valid if and only if
+// the NSError object is nil.
++ (void)retrieveMetadataForVideoWithID:(NSString *)videoID
+                 withCompletionHandler:(void (^)(NSDictionary *, NSError *))completionHandler;
+
+// This method 
++ (void)showVideoPushNotificationReceiverViewInParentViewController:(UIViewController *)parentViewController
+                                                         withParams:(NSDictionary *)params;
+
 
 // --------------------------------------------------------
 // Custom sharing API
@@ -249,8 +264,8 @@ typedef enum
 // Replay the latest video in the parent view controller.
 // The "latest video" is defined as the last one for which
 // you called [Kamcord stopRecording].
-+ (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController;
-
++ (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController
+                                  forVideo:(KCVideo *)video;
 
 // The object that will receive all non-share related callbacks.
 + (void)setDelegate:(id <KamcordDelegate>)delegate;
@@ -304,6 +319,14 @@ typedef enum
                      YouTube:(BOOL)shareYouTube
                        Email:(BOOL)shareEmail
                  withMessage:(NSString *)message
+mailViewParentViewController:(UIViewController *)parentViewController;
+
++ (BOOL)shareVideo:(KCVideo *)video
+        onFacebook:(BOOL)shareFacebook
+           Twitter:(BOOL)shareTwitter
+           YouTube:(BOOL)shareYouTube
+             Email:(BOOL)shareEmail
+       withMessage:(NSString *)message
 mailViewParentViewController:(UIViewController *)parentViewController;
 
 // Show the send email dialog with the Kamcord URL in the message.

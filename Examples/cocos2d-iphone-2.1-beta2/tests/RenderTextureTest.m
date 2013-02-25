@@ -8,6 +8,9 @@
 // cocos import
 #import "RenderTextureTest.h"
 
+#import <Kamcord/Kamcord.h>
+#import "SimpleAudioEngine.h"
+
 static int sceneIdx=-1;
 static NSString *tests[] = {
 	@"RenderTextureSave",
@@ -130,9 +133,21 @@ Class restartAction()
 
 @interface RenderTextureSave ()
 -(void)testUIImage;
+
+@property (nonatomic, retain) CDSoundSource * sound1;
+@property (nonatomic, retain) CDSoundSource * sound2;
+
 @end
 
 @implementation RenderTextureSave
+{
+    CDSoundSource * sound1_;
+    CDSoundSource * sound2_;
+}
+
+@synthesize sound1 = sound1_;
+@synthesize sound2 = sound2_;
+
 -(id) init
 {
 	if( (self = [super init]) ) {
@@ -172,11 +187,19 @@ Class restartAction()
 		// Save Image menu
 		[CCMenuItemFont setFontSize:16];
 		CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"Start Recording" target:self selector:@selector(startRecording:)];
-		CCMenuItem *item2 = [CCMenuItemFont itemWithString:@"Stop Recording" target:self selector:@selector(stopRecording:)];
-		CCMenu *menu = [CCMenu menuWithItems:item1, item2, nil];
+		CCMenuItem *item2 = [CCMenuItemFont itemWithString:@"Stop Recording" target:self selector:@selector(stopRecordingAndShowDialog:)];
+		CCMenuItem *item3 = [CCMenuItemFont itemWithString:@"Play Sound #1" target:self selector:@selector(playSound1:)];
+        CCMenuItem *item4 = [CCMenuItemFont itemWithString:@"Play Sound #2" target:self selector:@selector(playSound2:)];
+        CCMenuItem *item5 = [CCMenuItemFont itemWithString:@"Stop Sound #1" target:self selector:@selector(stopSound1:)];
+        CCMenuItem *item6 = [CCMenuItemFont itemWithString:@"Stop Sound #2" target:self selector:@selector(stopSound2:)];
+		CCMenuItem *item7 = [CCMenuItemFont itemWithString:@"Stop All Sounds" target:self selector:@selector(stopAllSounds:)];
+		CCMenu *menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, item7, nil];
 		[self addChild:menu];
 		[menu alignItemsVertically];
-		[menu setPosition:ccp(s.width-80, s.height-30)];
+		[menu setPosition:ccp(s.width-80, s.height-90)];
+        
+        self.sound1 = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"test1.caf"];
+        self.sound2 = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"test2.m4a"];
 
         // Not needed, used to illustrate how KamcordDelegate may be used.
         [Kamcord setDelegate:self];
@@ -185,17 +208,6 @@ Class restartAction()
 			[(CCGLView*)[director view] unlockOpenGLContext];
 	}
 	return self;
-}
-
-- (void)startRecording:(id)sender
-{
-    [Kamcord startRecording];
-}
-
-- (void)stopRecording:(id)sender
-{
-    [Kamcord stopRecording];
-    [Kamcord showView];
 }
 
 - (void)shareButtonPressedWithMessage:(NSString *)message
@@ -217,6 +229,44 @@ Class restartAction()
 {
 	return @"Press 'Save Image' to create an snapshot of the render texture";
 }
+
+- (void)startRecording:(id)sender
+{
+    [Kamcord startRecording];
+}
+
+- (void)stopRecordingAndShowDialog:(id)sender
+{
+	[Kamcord stopRecording];
+    [Kamcord showView];
+}
+
+
+- (void)playSound1:(id)sender
+{
+    [self.sound1 play];
+}
+
+- (void)playSound2:(id)sender
+{
+    [self.sound2 play];
+}
+- (void)stopSound1:(id)sender
+{
+    [self.sound1 stop];
+}
+
+- (void)stopSound2:(id)sender
+{
+    [self.sound2 stop];
+}
+
+- (void)stopAllSounds:(id)sender
+{
+    [self.sound1 stop];
+    [self.sound2 stop];
+}
+
 
 -(void) clearImage:(id)sender
 {

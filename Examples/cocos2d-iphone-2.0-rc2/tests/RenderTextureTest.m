@@ -9,6 +9,8 @@
 #import "RenderTextureTest.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import "SimpleAudioEngine.h"
+
 static int sceneIdx=-1;
 static NSString *tests[] = {
 	@"KamcordRecording",
@@ -135,28 +137,20 @@ Class restartAction()
 
 @interface KamcordRecording ()
 
-@property (nonatomic, retain) KCAudio * sound1;
-@property (nonatomic, retain) KCAudio * sound2;
-
-@property (nonatomic, retain) AVAudioPlayer * audioPlayer1;
-@property (nonatomic, retain) AVAudioPlayer * audioPlayer2;
+@property (nonatomic, retain) CDSoundSource * sound1;
+@property (nonatomic, retain) CDSoundSource * sound2;
 
 @end
 
 @implementation KamcordRecording
 {
-    KCAudio * sound1_;
-    KCAudio * sound2_;
-    
-    AVAudioPlayer * audioPlayer1_;
-    AVAudioPlayer * audioPlayer2_;
+    CDSoundSource * sound1_;
+    CDSoundSource * sound2_;
 }
 
 @synthesize sound1 = sound1_;
 @synthesize sound2 = sound2_;
 
-@synthesize audioPlayer1 = audioPlayer1_;
-@synthesize audioPlayer2 = audioPlayer2_;
 -(id) init
 {
 	if( (self = [super init]) ) {
@@ -207,66 +201,50 @@ Class restartAction()
 		[menu alignItemsVertically];
 		[menu setPosition:ccp(s.width-80, s.height-90)];
         
+        self.sound1 = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"test1.caf"];
+        self.sound2 = [[SimpleAudioEngine sharedEngine] soundSourceForFile:@"test2.m4a"];
+        
 		if( [NSThread currentThread] != [director runningThread] )
 			[(CCGLView*)[director view] unlockOpenGLContext];
 	}
 	return self;
 }
 
--(void) startRecording:(id)sender
+- (void)startRecording:(id)sender
 {
     [Kamcord startRecording];
 }
 
--(void) stopRecordingAndShowDialog:(id)sender
+- (void)stopRecordingAndShowDialog:(id)sender
 {
-    [Kamcord stopRecording];
+	[Kamcord stopRecording];
     [Kamcord showView];
 }
 
--(void) playSound1:(id)sender
+
+- (void)playSound1:(id)sender
 {
-    if (!self.audioPlayer1)
-    {
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"caf"];
-        self.audioPlayer1 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    }
-    
-    if ([self.audioPlayer1 play]) {
-        self.sound1 = [Kamcord playSound:@"test1.caf"];
-    }
+    [self.sound1 play];
 }
 
--(void) playSound2:(id)sender
+- (void)playSound2:(id)sender
 {
-    if (!self.audioPlayer2)
-    {
-        NSURL * url = [[NSBundle mainBundle] URLForResource:@"test2" withExtension:@"m4a"];
-        self.audioPlayer2 = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    }
-    
-    if ([self.audioPlayer2 play]) {
-        self.sound2 = [Kamcord playSound:@"test2.m4a"];
-    }
+    [self.sound2 play];
 }
-
--(void) stopSound1:(id)sender
+- (void)stopSound1:(id)sender
 {
-    [self.audioPlayer1 stop];
     [self.sound1 stop];
 }
 
--(void) stopSound2:(id)sender
+- (void)stopSound2:(id)sender
 {
-    [self.audioPlayer2 stop];
     [self.sound2 stop];
 }
 
--(void) stopAllSounds:(id)sender
+- (void)stopAllSounds:(id)sender
 {
-    [self.audioPlayer1 stop];
-    [self.audioPlayer2 stop];
-    [Kamcord stopAllSounds:NO];
+    [self.sound1 stop];
+    [self.sound2 stop];
 }
 
 

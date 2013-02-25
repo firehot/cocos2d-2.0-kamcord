@@ -24,7 +24,7 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 1.0.1 2/15/2013)
+// Current verion is 1.0.2 2/24/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
 static NSString * const DEVICE_TYPE_IPOD        = @"DEVICE_TYPE_IPOD";
@@ -59,8 +59,8 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 + (NSString *)appName;
 
 // View and OpenGL
-+ (void) setParentViewController:(UIViewController *)viewController;
-+ (UIViewController *) parentViewController;
++ (void)setParentViewController:(UIViewController *)viewController;
++ (UIViewController *)parentViewController;
 
 + (void) setView:(KCGLView *)glView;
 + (KCGLView *) openGLView;
@@ -148,18 +148,15 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 
 
 // Video recording settings
-// For release, use SMART_VIDEO_DIMENSIONS:
-//   iPad 1 and 2: 512x384
-//   iPad 3: 1024x768
-//   All iPhone and iPods: 480x320
-//
+// For release, use oen of
+//     - SMART_VIDEO_RESOLUTION/LOW_VIDEO_RESOLUTION
+//     - MEDIUM_VIDEO_RESOLUTION
 // For trailers, use TRAILER_VIDEO_RESOLUTION
-//   All iPads: 1024x768
-//   iPhone/iPod non-retina: 480x320
-//   iPhone/iPad retina: 960x640
 typedef enum {
-    SMART_VIDEO_RESOLUTION,
-    TRAILER_VIDEO_RESOLUTION,
+    SMART_VIDEO_RESOLUTION      = 0,
+    LOW_VIDEO_RESOLUTION        = 0,
+    MEDIUM_VIDEO_RESOLUTION     = 1,
+    TRAILER_VIDEO_RESOLUTION    = 2,
 } KC_VIDEO_RESOLUTION;
 
 // Size refers to the pixel dimensions. 
@@ -249,8 +246,8 @@ typedef enum
 // Replay the latest video in the parent view controller.
 // The "latest video" is defined as the last one for which
 // you called [Kamcord stopRecording].
-+ (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController;
-
++ (void)presentVideoPlayerInViewController:(UIViewController *)parentViewController
+                                  forVideo:(KCVideo *)video;
 
 // The object that will receive all non-share related callbacks.
 + (void)setDelegate:(id <KamcordDelegate>)delegate;
@@ -304,6 +301,14 @@ typedef enum
                      YouTube:(BOOL)shareYouTube
                        Email:(BOOL)shareEmail
                  withMessage:(NSString *)message
+mailViewParentViewController:(UIViewController *)parentViewController;
+
++ (BOOL)shareVideo:(KCVideo *)video
+        onFacebook:(BOOL)shareFacebook
+           Twitter:(BOOL)shareTwitter
+           YouTube:(BOOL)shareYouTube
+             Email:(BOOL)shareEmail
+       withMessage:(NSString *)message
 mailViewParentViewController:(UIViewController *)parentViewController;
 
 // Show the send email dialog with the Kamcord URL in the message.

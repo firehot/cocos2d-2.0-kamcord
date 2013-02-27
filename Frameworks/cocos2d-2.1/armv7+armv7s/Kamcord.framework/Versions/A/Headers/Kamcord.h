@@ -13,6 +13,8 @@
 #import "KCGLView.h"
 #import "CCDirectorIOS.h"
 
+#import "Common/Core/Audio/KamcordAudioEngine/KamcordAudioEngine.h"
+
 // Convenient for game developers
 #import "KamcordMacros.h"
 #import "Common/View/KCViewController.h"
@@ -24,10 +26,11 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 1.0.2 2/24/2013)
+// Current verion is 1.0.3 2/26/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
-static NSString * const DEVICE_TYPE_IPOD        = @"DEVICE_TYPE_IPOD";
+static NSString * const DEVICE_TYPE_IPOD_4G     = @"DEVICE_TYPE_IPOD_4G";   // iPod 4G and older
+static NSString * const DEVICE_TYPE_IPOD_5G     = @"DEVICE_TYPE_IPOD_5G";
 static NSString * const DEVICE_TYPE_IPAD_1      = @"DEVICE_TYPE_IPAD_1";
 static NSString * const DEVICE_TYPE_IPAD_2      = @"DEVICE_TYPE_IPAD_2";
 static NSString * const DEVICE_TYPE_IPAD_MINI   = @"DEVICE_TYPE_IPAD_MINI";
@@ -43,7 +46,7 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 // make [Kamcord setDeviceBlacklist:...] first Kamcord call you make.
 // (even before instantiate KCGLView).
 // Pass in an NSArray consisting of any of the devices listed above
-// (i.e. DEVICE_TYPE_IPOD, etc.).
+// (i.e. DEVICE_TYPE_IPOD_4G, etc.).
 + (void)setDeviceBlacklist:(NSArray *)blacklist;
 
 // Will return if Kamcord is enabled on the current device.
@@ -139,8 +142,10 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 + (BOOL)isRecording;
 
 // Displays the Kamcord view inside the previously set parentViewController;
-+ (void) showView;
-+ (void) showViewInViewController:(UIViewController *)parentViewController;
++ (void)showView;
++ (void)showViewInViewController:(UIViewController *)parentViewController;
++ (void)showWatchView;
++ (void)showWatchViewInViewController:(UIViewController *)parentViewController;
 
 + (UIView *)getThumbnailViewWithWidth:(NSUInteger)width
                                height:(NSUInteger)height

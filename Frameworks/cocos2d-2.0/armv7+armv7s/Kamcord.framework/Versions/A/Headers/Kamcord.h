@@ -23,10 +23,11 @@
 #import "Common/Core/KCAnalytics.h"
 
 // --------------------------------------------------------
-// Current verion is 1.0.1 2/15/2013)
+// Current verion is 1.0.3 2/27/2013)
 FOUNDATION_EXPORT NSString * const KamcordVersion;
 
-static NSString * const DEVICE_TYPE_IPOD        = @"DEVICE_TYPE_IPOD";
+static NSString * const DEVICE_TYPE_IPOD_4G     = @"DEVICE_TYPE_IPOD_4G";
+static NSString * const DEVICE_TYPE_IPOD_5G     = @"DEVICE_TYPE_IPOD_5G";
 static NSString * const DEVICE_TYPE_IPAD_1      = @"DEVICE_TYPE_IPAD_1";
 static NSString * const DEVICE_TYPE_IPAD_2      = @"DEVICE_TYPE_IPAD_2";
 static NSString * const DEVICE_TYPE_IPAD_MINI   = @"DEVICE_TYPE_IPAD_MINI";
@@ -140,8 +141,10 @@ static NSString * const DEVICE_TYPE_IPHONE_4    = @"DEVICE_TYPE_IPHONE_4";
 + (BOOL)isRecording;
 
 // Displays the Kamcord view inside the previously set parentViewController;
-+ (void) showView;
-+ (void) showViewInViewController:(UIViewController *)parentViewController;
++ (void)showView;
++ (void)showViewInViewController:(UIViewController *)parentViewController;
++ (void)showWatchView;
++ (void)showWatchViewInViewController:(UIViewController *)parentViewController;
 
 + (UIView *)getThumbnailViewWithWidth:(NSUInteger)width
                                height:(NSUInteger)height

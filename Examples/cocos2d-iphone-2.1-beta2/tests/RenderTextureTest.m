@@ -188,12 +188,13 @@ Class restartAction()
 		[CCMenuItemFont setFontSize:16];
 		CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"Start Recording" target:self selector:@selector(startRecording:)];
 		CCMenuItem *item2 = [CCMenuItemFont itemWithString:@"Stop Recording" target:self selector:@selector(stopRecordingAndShowDialog:)];
-		CCMenuItem *item3 = [CCMenuItemFont itemWithString:@"Play Sound #1" target:self selector:@selector(playSound1:)];
-        CCMenuItem *item4 = [CCMenuItemFont itemWithString:@"Play Sound #2" target:self selector:@selector(playSound2:)];
-        CCMenuItem *item5 = [CCMenuItemFont itemWithString:@"Stop Sound #1" target:self selector:@selector(stopSound1:)];
-        CCMenuItem *item6 = [CCMenuItemFont itemWithString:@"Stop Sound #2" target:self selector:@selector(stopSound2:)];
-		CCMenuItem *item7 = [CCMenuItemFont itemWithString:@"Stop All Sounds" target:self selector:@selector(stopAllSounds:)];
-		CCMenu *menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, item7, nil];
+        CCMenuItem *item3 = [CCMenuItemFont itemWithString:@"Show Watch View" target:self selector:@selector(showWatchView:)];
+		CCMenuItem *item4 = [CCMenuItemFont itemWithString:@"Play Sound #1" target:self selector:@selector(playSound1:)];
+        CCMenuItem *item5 = [CCMenuItemFont itemWithString:@"Play Sound #2" target:self selector:@selector(playSound2:)];
+        CCMenuItem *item6 = [CCMenuItemFont itemWithString:@"Stop Sound #1" target:self selector:@selector(stopSound1:)];
+        CCMenuItem *item7 = [CCMenuItemFont itemWithString:@"Stop Sound #2" target:self selector:@selector(stopSound2:)];
+		CCMenuItem *item8 = [CCMenuItemFont itemWithString:@"Stop All Sounds" target:self selector:@selector(stopAllSounds:)];
+		CCMenu *menu = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, item7, item8, nil];
 		[self addChild:menu];
 		[menu alignItemsVertically];
 		[menu setPosition:ccp(s.width-80, s.height-90)];
@@ -241,6 +242,10 @@ Class restartAction()
     [Kamcord showView];
 }
 
+- (void)showWatchView:(id)sender
+{
+    [Kamcord showWatchView];
+}
 
 - (void)playSound1:(id)sender
 {

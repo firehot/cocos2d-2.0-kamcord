@@ -7,7 +7,7 @@
 //
 
 #import <AudioToolbox/AudioToolbox.h>
-#import "KCAudioListener.h"
+#import "../KCAudioListener.h"
 
 #import "SimpleAudioEngine.h"
 #import "CocosDenshion.h"
@@ -50,8 +50,6 @@
 - (void)setBackgroundMusicVolume:(float)volume
                          kamcord:(BOOL)useKamcord;
 - (float)backgroundMusicVolume:(BOOL)useKamcord;
-
-- (BOOL)willPlayBackgroundMusic:(BOOL)useKamcord;
 
 - (void)setEffectsVolume:(float)effectsVolume
                  kamcord:(BOOL)useKamcord;

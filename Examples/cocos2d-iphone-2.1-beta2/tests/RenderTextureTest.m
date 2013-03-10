@@ -25,7 +25,6 @@ Class restartAction(void);
 
 Class nextAction()
 {
-
 	sceneIdx++;
 	sceneIdx = sceneIdx % ( sizeof(tests) / sizeof(tests[0]) );
 	NSString *r = tests[sceneIdx];

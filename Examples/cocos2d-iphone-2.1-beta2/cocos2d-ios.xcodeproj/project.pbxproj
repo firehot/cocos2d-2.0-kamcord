@@ -47,11 +47,6 @@
 		0AB0BF151605AC71004E160C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB0BF0E1605AC70004E160C /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0AB0BF161605AC71004E160C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB0BF0F1605AC70004E160C /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0AB0BF171605AC71004E160C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB0BF101605AC71004E160C /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4012C9D616ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */; };
-		4012C9D716ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */; };
-		4012C9D816ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */; };
-		4012C9D916ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */; };
-		4012C9DA16ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */; };
 		4012C9E516ED4B9300C8BFD1 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9DB16ED4B9300C8BFD1 /* FBDialog.bundle */; };
 		4012C9E616ED4B9300C8BFD1 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9DB16ED4B9300C8BFD1 /* FBDialog.bundle */; };
 		4012C9E716ED4B9300C8BFD1 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9DB16ED4B9300C8BFD1 /* FBDialog.bundle */; };
@@ -97,6 +92,11 @@
 		4012CA0F16ED4B9300C8BFD1 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9E416ED4B9300C8BFD1 /* VersionInfo.plist */; };
 		4012CA1016ED4B9300C8BFD1 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9E416ED4B9300C8BFD1 /* VersionInfo.plist */; };
 		4012CA1116ED4B9300C8BFD1 /* VersionInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4012C9E416ED4B9300C8BFD1 /* VersionInfo.plist */; };
+		4012CA1316ED523900C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012CA1216ED523900C8BFD1 /* Kamcord.framework */; };
+		4012CA1416ED523900C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012CA1216ED523900C8BFD1 /* Kamcord.framework */; };
+		4012CA1516ED523900C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012CA1216ED523900C8BFD1 /* Kamcord.framework */; };
+		4012CA1616ED523900C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012CA1216ED523900C8BFD1 /* Kamcord.framework */; };
+		4012CA1716ED523900C8BFD1 /* Kamcord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012CA1216ED523900C8BFD1 /* Kamcord.framework */; };
 		4020A4D916A5634800CE79E3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4020A4D816A5634800CE79E3 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4020A4DC16A5642500CE79E3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4020A4D816A5634800CE79E3 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4020A4DE16A5660C00CE79E3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4020A4D816A5634800CE79E3 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -942,7 +942,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D500B920D5A79C200DBA0E3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2D500B990D5A79CF00DBA0E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kamcord.framework; path = "../../Frameworks/cocos2d-2.0/Kamcord.framework"; sourceTree = "<group>"; };
 		4012C9DB16ED4B9300C8BFD1 /* FBDialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBDialog.bundle; path = "../../Frameworks/cocos2d-2.0/FBDialog.bundle"; sourceTree = "<group>"; };
 		4012C9DC16ED4B9300C8BFD1 /* GTMOAuth2ViewTouch.nib */ = {isa = PBXFileReference; lastKnownFileType = file; name = GTMOAuth2ViewTouch.nib; path = "../../Frameworks/cocos2d-2.0/GTMOAuth2ViewTouch.nib"; sourceTree = "<group>"; };
 		4012C9DD16ED4B9300C8BFD1 /* Kamcord.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kamcord.bundle; path = "../../Frameworks/cocos2d-2.0/Kamcord.bundle"; sourceTree = "<group>"; };
@@ -952,6 +951,7 @@
 		4012C9E216ED4B9300C8BFD1 /* KCVideoTracker 3.omo */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KCVideoTracker 3.omo"; sourceTree = "<group>"; };
 		4012C9E316ED4B9300C8BFD1 /* KCVideoTracker.mom */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = KCVideoTracker.mom; sourceTree = "<group>"; };
 		4012C9E416ED4B9300C8BFD1 /* VersionInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = VersionInfo.plist; sourceTree = "<group>"; };
+		4012CA1216ED523900C8BFD1 /* Kamcord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kamcord.framework; path = "../../Frameworks/cocos2d-2.0/Kamcord.framework"; sourceTree = "<group>"; };
 		4020A4D816A5634800CE79E3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		40CBCF5E162A229E0050B787 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		495E73F7104B74E20012BB52 /* RenderTextureTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenderTextureTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1891,7 +1891,7 @@
 				495E74F0104B752C0012BB52 /* CoreGraphics.framework in Frameworks */,
 				0AB0BF111605AC71004E160C /* CoreMedia.framework in Frameworks */,
 				0AB0BF121605AC71004E160C /* CoreVideo.framework in Frameworks */,
-				4012C9D716ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */,
+				4012CA1416ED523900C8BFD1 /* Kamcord.framework in Frameworks */,
 				0A4AD6FF16DB3B7B004B9401 /* OpenAL.framework in Frameworks */,
 				495E74F1104B752C0012BB52 /* OpenGLES.framework in Frameworks */,
 				495E74F2104B752C0012BB52 /* QuartzCore.framework in Frameworks */,
@@ -1937,6 +1937,7 @@
 				501C7C8A0F91EFFF0024A296 /* CoreGraphics.framework in Frameworks */,
 				40CBCF7B162A8A180050B787 /* CoreMedia.framework in Frameworks */,
 				40CBCF7D162A8A670050B787 /* CoreVideo.framework in Frameworks */,
+				4012CA1716ED523900C8BFD1 /* Kamcord.framework in Frameworks */,
 				0A4AD71216DB3F3C004B9401 /* OpenAL.framework in Frameworks */,
 				501C7C8B0F91EFFF0024A296 /* OpenGLES.framework in Frameworks */,
 				501C7C8C0F91EFFF0024A296 /* QuartzCore.framework in Frameworks */,
@@ -1955,7 +1956,6 @@
 				40CBCF81162A8B450050B787 /* SystemConfiguration.framework in Frameworks */,
 				40CBCF7A162A89F90050B787 /* Twitter.framework in Frameworks */,
 				501C7C890F91EFFF0024A296 /* UIKit.framework in Frameworks */,
-				4012C9DA16ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1975,6 +1975,7 @@
 				502C67040DFEFE1000E4107D /* CoreGraphics.framework in Frameworks */,
 				0A3448541605E24B00182EB3 /* CoreMedia.framework in Frameworks */,
 				0A3448551605E24B00182EB3 /* CoreVideo.framework in Frameworks */,
+				4012CA1516ED523900C8BFD1 /* Kamcord.framework in Frameworks */,
 				0A34485F1605E24B00182EB3 /* OpenAL.framework in Frameworks */,
 				502C67050DFEFE1000E4107D /* OpenGLES.framework in Frameworks */,
 				502C67060DFEFE1000E4107D /* QuartzCore.framework in Frameworks */,
@@ -1994,7 +1995,6 @@
 				0A3448591605E24B00182EB3 /* SystemConfiguration.framework in Frameworks */,
 				0A34485A1605E24B00182EB3 /* Twitter.framework in Frameworks */,
 				502C67030DFEFE1000E4107D /* UIKit.framework in Frameworks */,
-				4012C9D816ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2021,6 +2021,7 @@
 				506C80070E041C9300B48100 /* CoreGraphics.framework in Frameworks */,
 				40CBCF71162A847A0050B787 /* CoreMedia.framework in Frameworks */,
 				40CBCF72162A84A10050B787 /* CoreVideo.framework in Frameworks */,
+				4012CA1616ED523900C8BFD1 /* Kamcord.framework in Frameworks */,
 				0A4AD70E16DB3F0F004B9401 /* OpenAL.framework in Frameworks */,
 				506C80080E041C9300B48100 /* OpenGLES.framework in Frameworks */,
 				506C80090E041C9300B48100 /* QuartzCore.framework in Frameworks */,
@@ -2039,7 +2040,6 @@
 				40CBCF76162A854E0050B787 /* SystemConfiguration.framework in Frameworks */,
 				40CBCF77162A855C0050B787 /* Twitter.framework in Frameworks */,
 				506C80060E041C9300B48100 /* UIKit.framework in Frameworks */,
-				4012C9D916ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2073,6 +2073,7 @@
 				40CBCF67162A78BF0050B787 /* CoreMedia.framework in Frameworks */,
 				A0CFE63D15BE3D4500264229 /* CoreMotion.framework in Frameworks */,
 				40CBCF68162A791A0050B787 /* CoreVideo.framework in Frameworks */,
+				4012CA1316ED523900C8BFD1 /* Kamcord.framework in Frameworks */,
 				50DB1BC40E1C1E5900A89DFF /* OpenGLES.framework in Frameworks */,
 				0A4AD71716DB3F5A004B9401 /* OpenAL.framework in Frameworks */,
 				50DB1BC50E1C1E5900A89DFF /* QuartzCore.framework in Frameworks */,
@@ -2091,7 +2092,6 @@
 				40CBCF6C162A79D70050B787 /* SystemConfiguration.framework in Frameworks */,
 				40CBCF6D162A79E50050B787 /* Twitter.framework in Frameworks */,
 				50DB1BC20E1C1E5900A89DFF /* UIKit.framework in Frameworks */,
-				4012C9D616ED4B7A00C8BFD1 /* Kamcord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2211,7 +2211,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				A034FF85149DC993009F11AA /* GameKit.framework */,
 				4020A4D816A5634800CE79E3 /* ImageIO.framework */,
-				4012C9D516ED4B7A00C8BFD1 /* Kamcord.framework */,
+				4012CA1216ED523900C8BFD1 /* Kamcord.framework */,
 				503092B210447296005F7AFC /* libz.dylib */,
 				0AB0BF0C1605AC70004E160C /* MediaPlayer.framework */,
 				0AB0BF0D1605AC70004E160C /* MessageUI.framework */,
